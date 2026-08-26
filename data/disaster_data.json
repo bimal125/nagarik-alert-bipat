@@ -8,20 +8,20 @@
     "province_en": "Bagmati Province",
     "river_np": "भोटेकोशी नदी",
     "river_en": "Bhotekoshi River",
-    "last_updated": "२०८३-०५-१० १४:३०:०० (2026-08-26 14:30 IST)",
-    "alert_level_np": "अत्यधिक जोखिम / संकटग्रस्त क्षेत्र",
-    "alert_level_en": "High Alert / Disaster Zone",
+    "last_updated": "२०८३-०५-१० १५:००:०० (2026-08-26 15:00 IST)",
+    "alert_level_np": "सतर्कता / निगरानी क्षेत्र",
+    "alert_level_en": "Watch / Monitoring Zone",
     "data_version": "1.0.0"
   },
   "overall_summary": {
-    "total_deaths": 10,
-    "total_missing": 19,
-    "total_injured": 42,
-    "displaced_families": 385,
-    "destroyed_houses": 210,
-    "partially_damaged_houses": 430,
-    "relief_camps": 12,
-    "rescued_people": 560
+    "total_deaths": 0,
+    "total_missing": 0,
+    "total_injured": 0,
+    "displaced_families": 0,
+    "destroyed_houses": 0,
+    "partially_damaged_houses": 0,
+    "relief_camps": 0,
+    "rescued_people": 0
   },
   "local_governments": [
     {
@@ -30,80 +30,80 @@
       "name_en": "Bhotekoshi Rural Municipality",
       "type": "गाउँपालिका",
       "total_wards": 5,
-      "severity": "अत्यधिक उच्च जोखिम",
-      "severity_code": "danger",
+      "severity": "निगरानी क्षेत्र",
+      "severity_code": "info",
       "latitude": 27.9382,
       "longitude": 85.9324,
       "casualties": {
-        "deaths": 14,
-        "missing": 11,
-        "injured": 22
+        "deaths": 0,
+        "missing": 0,
+        "injured": 0
       },
-      "displaced_families": 180,
-      "destroyed_houses": 115,
-      "partially_damaged_houses": 190,
+      "displaced_families": 0,
+      "destroyed_houses": 0,
+      "partially_damaged_houses": 0,
       "helpline": "०११-४१०१०१ / ९८५१२०३२३४",
       "contact_person": "अध्यक्ष: पासाङ नुर्पु शेर्पा (९८५१००५६७८)",
       "wards": [
         {
           "ward_no": 1,
           "name_np": "लिपिङ / कोदारी",
-          "deaths": 5,
-          "missing": 4,
-          "injured": 8,
-          "displaced_families": 55,
-          "destroyed_houses": 40,
-          "status": "सडक सम्पर्क विच्छेद / हेलिकप्टरबाट राहत जारी",
-          "relief_pct": 65,
-          "urgent_needs": "खाना, त्रिपाल, पिउने पानी, औषधि"
+          "deaths": 0,
+          "missing": 0,
+          "injured": 0,
+          "displaced_families": 0,
+          "destroyed_houses": 0,
+          "status": "सामान्य / सडक अनुगमन जारी",
+          "relief_pct": 0,
+          "urgent_needs": "सामान्य"
         },
         {
           "ward_no": 2,
           "name_np": "तातोपानी / धारागाउँ",
-          "deaths": 4,
-          "missing": 3,
-          "injured": 6,
-          "displaced_families": 45,
-          "destroyed_houses": 30,
-          "status": "तातोपानी सुख्खा बन्दरगाह नजिक पहिरो जोखिम",
-          "relief_pct": 70,
-          "urgent_needs": "आश्रय त्रिपाल, कम्बल, सरसफाइ सामाग्री"
+          "deaths": 0,
+          "missing": 0,
+          "injured": 0,
+          "displaced_families": 0,
+          "destroyed_houses": 0,
+          "status": "सामान्य / नदी कटान निगरानी",
+          "relief_pct": 0,
+          "urgent_needs": "सामान्य"
         },
         {
           "ward_no": 3,
           "name_np": "मार्मिङ",
-          "deaths": 2,
-          "missing": 2,
-          "injured": 4,
-          "displaced_families": 30,
-          "destroyed_houses": 18,
-          "status": "पैदल मार्ग चालु",
-          "relief_pct": 80,
-          "urgent_needs": "सुक्खा खाना, मलमल कपडा"
+          "deaths": 0,
+          "missing": 0,
+          "injured": 0,
+          "displaced_families": 0,
+          "destroyed_houses": 0,
+          "status": "सामान्य / पैदल मार्ग सुचारु",
+          "relief_pct": 0,
+          "urgent_needs": "सामान्य"
         },
         {
           "ward_no": 4,
           "name_np": "फुल्पिङकट्टी / चाकु",
-          "deaths": 2,
-          "missing": 1,
-          "injured": 3,
-          "displaced_families": 32,
-          "destroyed_houses": 17,
-          "status": "चाकु जलविद्युत गृह क्षतिग्रस्त",
-          "relief_pct": 75,
-          "urgent_needs": "सञ्चार सुविधा, सौर्य बत्ती"
+          "deaths": 0,
+          "missing": 0,
+          "injured": 0,
+          "displaced_families": 0,
+          "destroyed_houses": 0,
+          "status": "सामान्य / सञ्चार सुचारु",
+          "relief_pct": 0,
+          "urgent_needs": "सामान्य"
         },
         {
           "ward_no": 5,
           "name_np": "हिन्दी / छिरिङघ्याङ",
-          "deaths": 1,
-          "missing": 1,
-          "injured": 1,
-          "displaced_families": 18,
-          "destroyed_houses": 10,
-          "status": "आंशिक क्षति, अस्थायी शिविर निर्माण",
-          "relief_pct": 85,
-          "urgent_needs": "बालबालिका र महिला प्राथमिक उपचार"
+          "deaths": 0,
+          "missing": 0,
+          "injured": 0,
+          "displaced_families": 0,
+          "destroyed_houses": 0,
+          "status": "सामान्य / निगरानी जारी",
+          "relief_pct": 0,
+          "urgent_needs": "सामान्य"
         }
       ]
     },
@@ -113,56 +113,56 @@
       "name_en": "Barhabise Municipality",
       "type": "नगरपालिका",
       "total_wards": 9,
-      "severity": "उच्च जोखिम",
-      "severity_code": "danger",
+      "severity": "निगरानी क्षेत्र",
+      "severity_code": "info",
       "latitude": 27.7876,
       "longitude": 85.8974,
       "casualties": {
-        "deaths": 6,
-        "missing": 5,
-        "injured": 12
+        "deaths": 0,
+        "missing": 0,
+        "injured": 0
       },
-      "displaced_families": 110,
-      "destroyed_houses": 55,
-      "partially_damaged_houses": 120,
+      "displaced_families": 0,
+      "destroyed_houses": 0,
+      "partially_damaged_houses": 0,
       "helpline": "०११-४८९०१२ / ९८५१०३३२११",
       "contact_person": "प्रमुख: बालकृष्ण बस्नेत (९८५११२३४५६)",
       "wards": [
         {
           "ward_no": 3,
           "name_np": "बाह्रबिसे बजार",
-          "deaths": 2,
-          "missing": 2,
-          "injured": 5,
-          "displaced_families": 35,
-          "destroyed_houses": 20,
-          "status": "भोटेकोशी किनार कटान, बजार आंशिक प्रभावित",
-          "relief_pct": 85,
-          "urgent_needs": "तटबन्ध नियन्त्रण सामाग्री, खाद्यान्न"
+          "deaths": 0,
+          "missing": 0,
+          "injured": 0,
+          "displaced_families": 0,
+          "destroyed_houses": 0,
+          "status": "सामान्य / बजार क्षेत्र सामान्य",
+          "relief_pct": 0,
+          "urgent_needs": "सामान्य"
         },
         {
           "ward_no": 5,
           "name_np": "खाग्दाल / रामचे",
-          "deaths": 3,
-          "missing": 2,
-          "injured": 4,
-          "displaced_families": 40,
-          "destroyed_houses": 22,
-          "status": "खाग्दाल पुल बगेको, डाइभर्सन निर्माण जारी",
-          "relief_pct": 70,
-          "urgent_needs": "भारी उपकरण, त्रिपाल, सुक्खा खाद्यान्न"
+          "deaths": 0,
+          "missing": 0,
+          "injured": 0,
+          "displaced_families": 0,
+          "destroyed_houses": 0,
+          "status": "सामान्य / सडक सुचारु",
+          "relief_pct": 0,
+          "urgent_needs": "सामान्य"
         },
         {
           "ward_no": 7,
           "name_np": "घुम्थाङ / नागपुजे",
-          "deaths": 1,
-          "missing": 1,
-          "injured": 3,
-          "displaced_families": 35,
-          "destroyed_houses": 13,
-          "status": "पहिरो पन्छाउने काम तीव्र",
-          "relief_pct": 80,
-          "urgent_needs": "जस्तापाता, कम्बल"
+          "deaths": 0,
+          "missing": 0,
+          "injured": 0,
+          "displaced_families": 0,
+          "destroyed_houses": 0,
+          "status": "सामान्य / सडक सञ्चालन",
+          "relief_pct": 0,
+          "urgent_needs": "सामान्य"
         }
       ]
     },
@@ -172,44 +172,44 @@
       "name_en": "Balephi Rural Municipality",
       "type": "गाउँपालिका",
       "total_wards": 8,
-      "severity": "मध्यम जोखिम",
-      "severity_code": "warning",
+      "severity": "सामान्य सतर्कता",
+      "severity_code": "info",
       "latitude": 27.7345,
       "longitude": 85.8341,
       "casualties": {
-        "deaths": 2,
-        "missing": 2,
-        "injured": 5
+        "deaths": 0,
+        "missing": 0,
+        "injured": 0
       },
-      "displaced_families": 45,
-      "destroyed_houses": 22,
-      "partially_damaged_houses": 60,
+      "displaced_families": 0,
+      "destroyed_houses": 0,
+      "partially_damaged_houses": 0,
       "helpline": "०११-६६४०२१ / ९८४१३४५६७८",
       "contact_person": "अध्यक्ष: गंगाबहादुर तामाङ (९८४१२२३३४४)",
       "wards": [
         {
           "ward_no": 1,
           "name_np": "लामोसाँगु",
-          "deaths": 1,
-          "missing": 1,
-          "injured": 2,
-          "displaced_families": 20,
-          "destroyed_houses": 10,
-          "status": "भोटेकोशी र बलेफी दोभान क्षेत्र सतर्कतामा",
-          "relief_pct": 90,
-          "urgent_needs": "पिउने पानी शुद्धीकरण औषधि"
+          "deaths": 0,
+          "missing": 0,
+          "injured": 0,
+          "displaced_families": 0,
+          "destroyed_houses": 0,
+          "status": "सामान्य सतर्कता",
+          "relief_pct": 0,
+          "urgent_needs": "सामान्य"
         },
         {
           "ward_no": 6,
           "name_np": "जलविरे",
-          "deaths": 1,
-          "missing": 1,
-          "injured": 3,
-          "displaced_families": 25,
-          "destroyed_houses": 12,
-          "status": "बलेफी खोला सतह उच्च",
-          "relief_pct": 85,
-          "urgent_needs": "अस्थायी टेन्ट, औषधि"
+          "deaths": 0,
+          "missing": 0,
+          "injured": 0,
+          "displaced_families": 0,
+          "destroyed_houses": 0,
+          "status": "सामान्य",
+          "relief_pct": 0,
+          "urgent_needs": "सामान्य"
         }
       ]
     },
@@ -219,32 +219,32 @@
       "name_en": "Tripurasundari Rural Municipality",
       "type": "गाउँपालिका",
       "total_wards": 6,
-      "severity": "मध्यम जोखिम",
-      "severity_code": "warning",
+      "severity": "सामान्य सतर्कता",
+      "severity_code": "info",
       "latitude": 27.7612,
       "longitude": 85.9521,
       "casualties": {
-        "deaths": 1,
-        "missing": 1,
-        "injured": 2
+        "deaths": 0,
+        "missing": 0,
+        "injured": 0
       },
-      "displaced_families": 30,
-      "destroyed_houses": 12,
-      "partially_damaged_houses": 35,
+      "displaced_families": 0,
+      "destroyed_houses": 0,
+      "partially_damaged_houses": 0,
       "helpline": "०११-५२०१०० / ९८५१०४४५५६",
       "contact_person": "अध्यक्ष: भक्तध्वज बोहरा (९८५१३३४४५५)",
       "wards": [
         {
           "ward_no": 4,
           "name_np": "धुस्कुन / तौथली",
-          "deaths": 1,
-          "missing": 1,
-          "injured": 2,
-          "displaced_families": 30,
-          "destroyed_houses": 12,
-          "status": "ग्रामीण सडक अवरुद्ध, उद्धार टोली परिचालित",
-          "relief_pct": 75,
-          "urgent_needs": "चामल, दाल, तेल, पाल"
+          "deaths": 0,
+          "missing": 0,
+          "injured": 0,
+          "displaced_families": 0,
+          "destroyed_houses": 0,
+          "status": "सामान्य / सडक सञ्चालन",
+          "relief_pct": 0,
+          "urgent_needs": "सामान्य"
         }
       ]
     },
@@ -259,27 +259,27 @@
       "latitude": 27.6543,
       "longitude": 85.8765,
       "casualties": {
-        "deaths": 1,
+        "deaths": 0,
         "missing": 0,
-        "injured": 1
+        "injured": 0
       },
-      "displaced_families": 12,
-      "destroyed_houses": 5,
-      "partially_damaged_houses": 15,
+      "displaced_families": 0,
+      "destroyed_houses": 0,
+      "partially_damaged_houses": 0,
       "helpline": "०११-६६०१२३",
       "contact_person": "अध्यक्ष: राजु लामा (९८५१०९८७६५)",
       "wards": [
         {
           "ward_no": 2,
           "name_np": "अत्तरपुर",
-          "deaths": 1,
+          "deaths": 0,
           "missing": 0,
-          "injured": 1,
-          "displaced_families": 12,
-          "destroyed_houses": 5,
-          "status": "पहिरो नियन्त्रण र सडक पन्छाउने काम जारी",
-          "relief_pct": 95,
-          "urgent_needs": "जस्तापाता, त्रिपाल"
+          "injured": 0,
+          "displaced_families": 0,
+          "destroyed_houses": 0,
+          "status": "सामान्य",
+          "relief_pct": 0,
+          "urgent_needs": "सामान्य"
         }
       ]
     },
@@ -298,9 +298,9 @@
         "missing": 0,
         "injured": 0
       },
-      "displaced_families": 8,
-      "destroyed_houses": 3,
-      "partially_damaged_houses": 10,
+      "displaced_families": 0,
+      "destroyed_houses": 0,
+      "partially_damaged_houses": 0,
       "helpline": "०११-५०१२३४",
       "contact_person": "प्रमुख: कृष्णप्रसाद सापकोटा (९८५१००११२२)",
       "wards": [
@@ -310,11 +310,11 @@
           "deaths": 0,
           "missing": 0,
           "injured": 0,
-          "displaced_families": 8,
-          "destroyed_houses": 3,
-          "status": "मुख्य जिल्ला सदरमुकाम राहत भण्डारण केन्द्र",
-          "relief_pct": 100,
-          "urgent_needs": "छिमेकी पालिकामा राहत आपूर्ति व्यवस्थापन"
+          "displaced_families": 0,
+          "destroyed_houses": 0,
+          "status": "सामान्य",
+          "relief_pct": 0,
+          "urgent_needs": "सामान्य"
         }
       ]
     }
@@ -322,50 +322,42 @@
   "road_conditions": [
     {
       "highway": "अरनिको राजमार्ग (Arniko Highway)",
-      "section_np": "खाग्दाल खोला पुल (Barhabise-Khagdal)",
-      "status_np": "बगेको (पुल क्षतिग्रस्त - बेली ब्रिज निर्माण जारी)",
-      "status_code": "blocked",
-      "impact_np": "बाह्रबिसेबाट तातोपानीतर्फको सवारी आवागमन पूर्ण अवरुद्ध"
+      "section_np": "खाग्दाल खोला क्षेत्र (Barhabise-Khagdal)",
+      "status_np": "सञ्चालनमा",
+      "status_code": "warning",
+      "impact_np": "सवारी आवागमन सुचारु"
     },
     {
       "highway": "अरनिको राजमार्ग (Arniko Highway)",
       "section_np": "डाँडाकाटे - लिपिङ सडक खण्ड",
-      "status_np": "ठूलो पहिरो / बाटो बगेको",
-      "status_code": "blocked",
-      "impact_np": "भोटेकोशी गाउँपालिका १ र २ सडक सम्पर्कबाट विच्छेद"
+      "status_np": "सञ्चालनमा",
+      "status_code": "warning",
+      "impact_np": "सडक सञ्चालनमा रहेको"
     },
     {
       "highway": "लामोसाँगु - जिरी सडक",
       "section_np": "लामोसाँगु क्षेत्र",
-      "status_np": "एकतर्फी सञ्चालन",
+      "status_np": "पूर्ण सञ्चालन",
       "status_code": "warning",
-      "impact_np": "साना गाडी र एम्बुलेन्स आंशिक रूपमा सञ्चालन"
+      "impact_np": "सवारी आवागमन सुचारु"
     }
   ],
   "shelter_camps": [
     {
-      "camp_name_np": "तातोपानी विद्यालय अस्थायी आश्रय शिविर",
+      "camp_name_np": "तातोपानी विद्यालय आश्रय केन्द्र",
       "location_np": "भोटेकोशी गाउँपालिका २",
       "capacity_families": 60,
-      "current_families": 48,
-      "managing_agency": "नेपाली सेना र नेपाल रेडक्रस",
-      "status": "सञ्चालनमा - खाद्यान्न र औषधि आवश्यक"
+      "current_families": 0,
+      "managing_agency": "स्थानीय विपद् समिति",
+      "status": "तयारी अवस्थामा"
     },
     {
-      "camp_name_np": "बाह्रबिसे माध्यमिक विद्यालय शिविर",
+      "camp_name_np": "बाह्रबिसे माध्यमिक विद्यालय केन्द्र",
       "location_np": "बाह्रबिसे नगरपालिका ३",
       "capacity_families": 80,
-      "current_families": 65,
-      "managing_agency": "नगरपालिका विपद् व्यवस्थापन समिति",
-      "status": "सञ्चालनमा - राम्रो व्यवस्था"
-    },
-    {
-      "camp_name_np": "लामोसाँगु बसपार्क खुला मैदान शिविर",
-      "location_np": "बलेफी गाउँपालिका १",
-      "capacity_families": 40,
-      "current_families": 28,
-      "managing_agency": "नेपाल प्रहरी र स्थानीय युथ क्लब",
-      "status": "सञ्चालनमा - त्रिपाल थप आवश्यक"
+      "current_families": 0,
+      "managing_agency": "नगरपालिका विपद् समिति",
+      "status": "तयारी अवस्थामा"
     }
   ]
 }
