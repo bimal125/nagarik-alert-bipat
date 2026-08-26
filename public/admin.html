@@ -165,6 +165,7 @@
       <button class="admin-tab active" onclick="switchAdminTab('summary', this)">📊 मुख्य क्षति विवरण (Summary)</button>
       <button class="admin-tab" onclick="switchAdminTab('localgov', this)">🏛️ स्थानीय तह तथा वडा (Local Govs)</button>
       <button class="admin-tab" onclick="switchAdminTab('roads', this)">🛣️ सडक तथा शिविर (Infrastructure)</button>
+      <button class="admin-tab" onclick="switchAdminTab('sources', this)">🌐 सूचना स्रोत (Sources)</button>
       <button class="admin-tab" onclick="switchAdminTab('rawjson', this)">💻 Raw JSON Editor</button>
     </div>
 
@@ -246,9 +247,18 @@
       <div style="margin-top: 2rem; display: flex; gap: 1rem;">
         <button class="btn-save" onclick="saveAdminData()">💾 परिवर्तन बचत गर्नुहोस् (Save & Broadcast)</button>
       </div>
+    <!-- TAB 4: INFORMATION SOURCES EDITOR -->
+    <section id="tab-sources" class="panel" style="display: none;">
+      <div class="panel-header">
+        <div class="panel-title">🌐 आधिकारिक सूचना तथा समाचार स्रोत सम्पादन (Information Sources)</div>
+      </div>
+      <div id="sources-editor-container"></div>
+      <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+        <button class="btn-save" onclick="saveAdminData()">💾 परिवर्तन बचत गर्नुहोस् (Save & Broadcast)</button>
+      </div>
     </section>
 
-    <!-- TAB 4: RAW JSON EDITOR -->
+    <!-- TAB 5: RAW JSON EDITOR -->
     <section id="tab-rawjson" class="panel" style="display: none;">
       <div class="panel-header">
         <div class="panel-title">💻 प्रत्यक्ष JSON कोड सम्पादक (Raw disaster_data.json)</div>
@@ -303,6 +313,7 @@
       document.getElementById('tab-summary').style.display = tabName === 'summary' ? 'block' : 'none';
       document.getElementById('tab-localgov').style.display = tabName === 'localgov' ? 'block' : 'none';
       document.getElementById('tab-roads').style.display = tabName === 'roads' ? 'block' : 'none';
+      document.getElementById('tab-sources').style.display = tabName === 'sources' ? 'block' : 'none';
       document.getElementById('tab-rawjson').style.display = tabName === 'rawjson' ? 'block' : 'none';
 
       if (tabName === 'rawjson') {
@@ -329,6 +340,7 @@
         renderLocalGovEditors();
         renderRoadsEditors();
         renderSheltersEditors();
+        renderSourcesEditors();
         syncRawJsonFromState();
 
       } catch (err) {
@@ -460,6 +472,37 @@
                 <input type="text" class="form-control" value="${camp.status || ''}" onchange="adminData.shelter_camps[${idx}].status = this.value">
               </div>
             </div>
+          </div>
+        `;
+      });
+      container.innerHTML = html;
+    }
+
+    function renderSourcesEditors() {
+      const container = document.getElementById('sources-editor-container');
+      if (!container || !adminData || !adminData.information_sources) return;
+
+      let html = '';
+      adminData.information_sources.forEach((group, gIdx) => {
+        html += `
+          <div class="card-item" style="margin-bottom: 1.5rem;">
+            <div class="form-group">
+              <label style="color: var(--accent-blue); font-size: 1rem;">वर्गीकरण समूह नाम (Category Title)</label>
+              <input type="text" class="form-control" value="${group.category_np || ''}" onchange="adminData.information_sources[${gIdx}].category_np = this.value">
+            </div>
+            <h5 style="margin: 1rem 0 0.5rem; color: var(--text-muted);">स्रोत लिङ्क विवरण (Sources Links):</h5>
+            ${(group.sources || []).map((src, sIdx) => `
+              <div class="grid-2" style="margin-bottom: 0.75rem; background: var(--input-bg); padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+                <div class="form-group" style="margin:0;">
+                  <label>स्रोत शीर्षक (Source Title)</label>
+                  <input type="text" class="form-control" value="${src.title || ''}" onchange="adminData.information_sources[${gIdx}].sources[${sIdx}].title = this.value">
+                </div>
+                <div class="form-group" style="margin:0;">
+                  <label>URL / लिङ्क (URL Link)</label>
+                  <input type="text" class="form-control" value="${src.url || ''}" onchange="adminData.information_sources[${gIdx}].sources[${sIdx}].url = this.value">
+                </div>
+              </div>
+            `).join('')}
           </div>
         `;
       });

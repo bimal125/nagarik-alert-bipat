@@ -53,6 +53,7 @@ async function fetchDashboardData(isManual = false) {
     renderMap(data.local_governments);
     renderRoadConditions(data.road_conditions);
     renderShelterCamps(data.shelter_camps);
+    renderInformationSources(data.information_sources);
 
     // Apply active filter to sync stats, accordion table, and map focus
     filterLocalGov(activeGovFilter);
@@ -238,6 +239,19 @@ function highlightChartGov(govId) {
   casualtyChartInstance.update();
 }
 
+let floodPolyline = null;
+
+function fitMapToMarkers() {
+  if (!leafletMapInstance) return;
+  const markerList = Object.values(mapMarkers);
+  if (markerList.length > 0) {
+    const group = L.featureGroup(markerList);
+    leafletMapInstance.fitBounds(group.getBounds().pad(0.15));
+  } else {
+    leafletMapInstance.setView([27.98, 85.26], 10);
+  }
+}
+
 // 4. Render Leaflet Interactive Map
 function renderMap(localGovs) {
   if (!localGovs) return;
@@ -245,12 +259,31 @@ function renderMap(localGovs) {
   if (!mapElement) return;
 
   if (!leafletMapInstance) {
-    // Centered around Sindhupalchok Bhotekoshi region (27.85, 85.90)
-    leafletMapInstance = L.map('map').setView([27.85, 85.90], 10);
+    // Centered around Rasuwa / Nuwakot region
+    leafletMapInstance = L.map('map').setView([27.98, 85.26], 10);
     
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; OpenStreetMap &copy; CARTO',
-      maxZoom: 16
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 18
+    }).addTo(leafletMapInstance);
+  }
+
+  // Draw Rasuwa - Trishuli flood corridor route line
+  if (!floodPolyline) {
+    const routePoints = [
+      [28.165, 85.375], // Rasuwa Fort / Timure
+      [28.150, 85.340], // Syaphrubesi
+      [28.100, 85.300], // Dhunche
+      [27.973, 85.254], // Kalikasthan
+      [27.930, 85.180], // Betrawati
+      [27.886, 85.158], // Trishuli / Bidur
+      [27.812, 85.198]  // Belkotgadhi
+    ];
+    floodPolyline = L.polyline(routePoints, {
+      color: '#c41e3a',
+      weight: 5,
+      opacity: 0.85,
+      dashArray: '8, 6'
     }).addTo(leafletMapInstance);
   }
 
@@ -258,24 +291,25 @@ function renderMap(localGovs) {
   Object.values(mapMarkers).forEach(m => leafletMapInstance.removeLayer(m));
   mapMarkers = {};
 
-  localGovs.forEach(gov => {
+  localGovs.forEach((gov, index) => {
     if (gov.latitude && gov.longitude) {
+      const isStart = index === 0;
       const isHighRisk = gov.severity_code === 'danger';
-      const markerColor = isHighRisk ? '#ef4444' : (gov.severity_code === 'warning' ? '#f97316' : '#3b82f6');
+      const markerColor = isStart ? '#c41e3a' : (isHighRisk ? '#ef4444' : (gov.severity_code === 'warning' ? '#f97316' : '#0e7490'));
       
       const customIcon = L.divIcon({
         className: 'custom-map-icon',
-        html: `<div style="background-color: ${markerColor}; width: 20px; height: 20px; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 12px ${markerColor}; cursor: pointer;"></div>`,
-        iconSize: [20, 20],
-        iconAnchor: [10, 10]
+        html: `<div class="map-pin ${isStart ? 'start' : ''}" style="background-color: ${markerColor};">${toNepaliDigits(index + 1)}</div>`,
+        iconSize: [28, 28],
+        iconAnchor: [14, 14]
       });
 
       const popupContent = `
-        <div style="font-family: 'Mukta', sans-serif; color: #0f172a; min-width: 180px;">
-          <h4 style="margin: 0 0 4px; color: #b91c1c; font-size: 1.1rem;">${gov.name_np}</h4>
+        <div style="font-family: 'Mukta', 'Noto Sans Devanagari', sans-serif; color: #0f172a; min-width: 180px;">
+          <h4 style="margin: 0 0 4px; color: #c41e3a; font-size: 1.1rem; font-weight: 800;">${gov.name_np}</h4>
           <p style="margin: 0; font-size: 0.85rem; color: #475569;">${gov.type} | ${gov.severity}</p>
           <hr style="margin: 6px 0; border: none; border-top: 1px solid #e2e8f0;">
-          <div style="font-size: 0.85rem; line-height: 1.4;">
+          <div style="font-size: 0.88rem; line-height: 1.4;">
             <strong>मृत्यु:</strong> ${toNepaliDigits(gov.casualties?.deaths || 0)} जना<br>
             <strong>बेपत्ता:</strong> ${toNepaliDigits(gov.casualties?.missing || 0)} जना<br>
             <strong>विस्थापित:</strong> ${toNepaliDigits(gov.displaced_families || 0)} परिवार<br>
@@ -295,13 +329,16 @@ function renderMap(localGovs) {
       mapMarkers[gov.id] = marker;
     }
   });
+
+  // Automatically fit map bounds to show all markers perfectly focused
+  fitMapToMarkers();
 }
 
 function focusMapGov(govId) {
   if (!leafletMapInstance) return;
 
   if (govId === 'all') {
-    leafletMapInstance.setView([27.85, 85.90], 10);
+    fitMapToMarkers();
     Object.values(mapMarkers).forEach(m => m.closePopup());
   } else if (mapMarkers[govId]) {
     const marker = mapMarkers[govId];
@@ -468,6 +505,26 @@ function renderShelterCamps(camps) {
       <div class="card-item-sub">स्थान: ${c.location_np} | व्यवस्थापक: ${c.managing_agency}</div>
       <div style="font-size: 0.9rem; color: var(--text-main); margin-top: 0.4rem;">
         <strong>आश्रय परिवार:</strong> ${toNepaliDigits(c.current_families)} / ${toNepaliDigits(c.capacity_families)} (क्षमता)
+      </div>
+    </div>
+  `).join('');
+}
+
+// 8. Render Official Information Sources
+function renderInformationSources(groups) {
+  const container = document.getElementById('sources-container');
+  if (!container || !groups) return;
+
+  container.innerHTML = groups.map(g => `
+    <div class="card-item" style="padding: 1rem;">
+      <h4 style="font-size: 1rem; color: var(--accent-blue); margin-bottom: 0.75rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.4rem;">${g.category_np}</h4>
+      <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+        ${(g.sources || []).map(s => `
+          <a href="${s.url}" target="_blank" rel="noopener noreferrer" style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.75rem; background: var(--input-bg); border: 1px solid var(--border-color); border-radius: var(--radius-sm); text-decoration: none; color: var(--text-main); font-weight: 700; font-size: 0.88rem; transition: border-color 0.2s;">
+            <span>📌 ${s.title}</span>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">🔗 खोल्नुहोस्</span>
+          </a>
+        `).join('')}
       </div>
     </div>
   `).join('');

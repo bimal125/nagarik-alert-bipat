@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>भोटेकोशी बाढी विपद् सूचना ड्यासबोर्ड | Bhotekoshi Flood Information Dashboard</title>
-  <meta name="description" content="भोटेकोशी नदी बाढी तथा पहिरो विपद् सम्बन्धी प्रत्यक्ष सूचना, स्थानीय तह (गाउँपालिका/नगरपालिका), वडास्तरीय क्षति, उद्धार तथा राहत ड्यासबोर्ड।">
+  <title>रसुवा–भोटेकोशी–त्रिशूली बाढी विपद् सूचना बुलेटिन | Disaster Bulletin</title>
+  <meta name="description" content="रसुवा–भोटेकोशी–त्रिशूली बाढीको प्रत्यक्ष अपडेट, सतर्कता, नक्सा, क्षति तथा उद्धार विवरण।">
   
   <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="/static/css/style.css">
@@ -18,6 +18,22 @@
 </head>
 <body>
 
+  <!-- Sticky Top Alert Banner & Navigation Chips Bar -->
+  <div class="stick">
+    <p class="safety-banner" role="alert">🚨 बाढी कत्रो आयो भन्दै नदी छेउछाउमा गएर हेर्ने, बाढीको छेउमा गएर भिडियो वा फोटो खिच्ने काम नगर्नुहोला । नदी भन्दा धेरै टाढा सुरक्षित स्थानमा बस्नुहोला।</p>
+    <nav class="chips" aria-label="खण्डहरू">
+      <div class="chips-inner">
+        <a class="home-btn" href="#" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;" title="गृहपृष्ठ">🏠</a>
+        <a href="#map-section">🗺️ नक्सा</a>
+        <a href="#police-alert-section">🚨 सतर्कता</a>
+        <a href="#stat-grid">📊 क्षति</a>
+        <a href="#gov-section">🏛️ पालिका तथा वडा</a>
+        <a href="#chart-section">📈 विश्लेषण</a>
+        <a href="#sources-section">🌐 स्रोत (Sources)</a>
+      </div>
+    </nav>
+  </div>
+
   <div class="container">
     
     <!-- Top Header -->
@@ -27,7 +43,7 @@
           <img src="/static/images/nagarikalert_logo_white.png" alt="NagarikAlert Logo" class="brand-logo logo-for-dark">
           <img src="/static/images/nagarikalert_logo.png" alt="NagarikAlert Logo" class="brand-logo logo-for-light">
           <div class="title-area">
-            <h1 id="dashboard-title">भोटेकोशी बाढी विपद् सूचना ड्यासबोर्ड</h1>
+            <h1 id="dashboard-title">भोटेकोशी–त्रिशूली बाढी विपद् सूचना बुलेटिन</h1>
             <p id="dashboard-sub">रसुवा र नुवाकोट जिल्ला, बागमती प्रदेश | सूचना तथा राहत व्यवस्थापन</p>
           </div>
         </div>
@@ -35,16 +51,24 @@
         <div class="header-status">
           <div class="alert-badge">
             <span class="pulse-dot"></span>
-            <span id="alert-text">अत्यधिक जोखिम क्षेत्र</span>
+            <span id="alert-text">सतर्कता / निगरानी क्षेत्र</span>
           </div>
           <div class="refresh-control">
             <span>अन्तिम अद्यावधिक: <strong id="last-updated-time">लोड हुँदैछ...</strong></span>
             <button class="btn-refresh" onclick="fetchDashboardData(true)">🔄 Refresh</button>
           </div>
-          <button class="theme-toggle-btn" id="theme-toggle-btn" onclick="toggleTheme()">☀️ Mode</button>
+          <button class="theme-toggle-btn" id="theme-toggle-btn" onclick="toggleTheme()">🌙 Dark</button>
         </div>
       </div>
     </header>
+
+    <!-- Emergency Police Warning Alert Box -->
+    <div id="police-alert-section" class="police-alert" role="alert">
+      <p class="police-alert-text">📢 भोटेकोशी र त्रिशूली नदीमा जलसतह अनुगमन भइरहेको छ। अर्को सूचना नआउन्जेल तटीय क्षेत्रका रसुवा, नुवाकोट, धादिङ, चितवन क्षेत्रका बासिन्दाहरू उच्च सतर्कताका साथ सुरक्षित स्थानमा रहनुहोला। <span class="src">Nepal Police / NEOC</span></p>
+      <div class="police-alert-phones">
+        <a href="tel:1234">उद्धार १२३४</a> · <a href="tel:100">प्रहरी १००</a> · <a href="tel:1114">१११४</a> · <a href="tel:102">एम्बुलेन्स १०२</a>
+      </div>
+    </div>
 
     <!-- Key Statistics Grid -->
     <section class="stat-grid" id="stat-grid">
@@ -97,20 +121,27 @@
     </section>
 
     <!-- Visualizations: Interactive Map & Charts -->
-    <div class="grid-2">
+    <div class="grid-2" id="map-section">
       <!-- Leaflet Map -->
       <div class="panel">
         <div class="panel-header">
-          <div class="panel-title">🗺️ विपद् प्रभावित क्षेत्र नक्सा (Affected Map)</div>
-          <span style="font-size: 0.85rem; color: var(--text-muted);">रसुवा, नुवाकोट र भोटेकोशी कोरिडोर</span>
+          <div class="panel-title">🗺️ नक्सा · बाढी प्रभाव क्षेत्र तथा नदी मार्ग</div>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">रसुवा, नुवाकोट र त्रिशूली करिडोर</span>
         </div>
         <div id="map"></div>
+        <div class="map-legend">
+          <span><i class="solid"></i>पुष्टि नदी मार्ग</span>
+          <span><i class="dash"></i>अनुमान / जोखिम</span>
+          <span><i class="pin start"></i>उद्गम / प्रवेश</span>
+          <span><i class="pin hit"></i>प्रभावित बिन्दु</span>
+          <span><i class="pin risk"></i>निगरानी बिन्दु</span>
+        </div>
       </div>
 
       <!-- Casualty Chart -->
-      <div class="panel">
+      <div class="panel" id="chart-section">
         <div class="panel-header">
-          <div class="panel-title">📊 स्थानीय तह अनुसार मानवीय क्षति (Casualties)</div>
+          <div class="panel-title">📊 स्थानीय तह अनुसार क्षति विश्लेषण (Casualties)</div>
         </div>
         <div class="chart-container">
           <canvas id="casualtyChart"></canvas>
@@ -119,9 +150,9 @@
     </div>
 
     <!-- Detailed Local Governments & Wards Accordion -->
-    <section class="panel" style="margin-bottom: 2rem;">
+    <section class="panel" id="gov-section" style="margin-bottom: 2rem;">
       <div class="panel-header">
-        <div class="panel-title">🏛️ स्थानीय तह तथा वडास्तरीय विस्तृत विवरण (Local Governments & Wards)</div>
+        <div class="panel-title">🏛️ स्थानीय तह तथा वडास्तरीय विवरण (Local Governments & Wards)</div>
         <span style="font-size: 0.85rem; color: var(--text-dim);">वडा विवरण हेर्न पालिकामा क्लिक गर्नुहोस्</span>
       </div>
 
@@ -131,30 +162,15 @@
       </div>
     </section>
 
-    <!-- Infrastructure & Relief Section Grid -->
-    <div class="grid-2">
-      <!-- Prithvi Highway & Road Conditions -->
-      <div class="panel">
-        <div class="panel-header">
-          <div class="panel-title">🛣️ पृथ्वी राजमार्ग तथा सडक स्थिति (Road & Highway Status)</div>
-        </div>
-        <div class="road-grid" id="road-conditions-list">
-          <!-- Dynamic Road Conditions -->
-        </div>
+    <!-- Official Information Sources Section -->
+    <section class="panel" id="sources-section" style="margin-bottom: 2rem;">
+      <div class="panel-header">
+        <div class="panel-title">🌐 आधिकारिक सूचना तथा समाचार स्रोतहरू (Official Sources)</div>
       </div>
-
-      <!-- Shelter Camps & Needs -->
-      <div class="panel">
-        <div class="panel-header">
-          <div class="panel-title">⛺ अस्थायी आश्रय शिविर तथा राहत स्थिति (Shelter Camps)</div>
-        </div>
-        <div class="shelter-grid" id="shelter-camps-list">
-          <!-- Dynamic Shelter Camps -->
-        </div>
+      <div id="sources-container" class="sources-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+        <!-- Rendered dynamically by JS -->
       </div>
-    </div>
-
-
+    </section>
 
   </div>
 
@@ -165,8 +181,8 @@
 
   <!-- Footer -->
   <footer>
-    <p>भोटेकोशी नदी बाढी तथा पहिरो सूचना प्रणाली | डाटा स्वचालित रूपमा <code>disaster_data.json</code> बाट सञ्चालित छ।</p>
-    <p style="margin-top: 0.4rem; font-size: 0.8rem;">अपडेट गर्नका लागि <code>data/disaster_data.json</code> फाइल सम्पादन गर्नुहोस्। ड्यासबोर्डमा तत्काल परिवर्तन देखिनेछ।</p>
+    <p>भोटेकोशी–त्रिशूली बाढी विपद् सूचना प्रणाली | नागरिक अलर्ट | डाटा स्वचालित रूपमा <code>disaster_data.json</code> बाट सञ्चालित छ।</p>
+    <p style="margin-top: 0.4rem; font-size: 0.8rem;">अद्यावधिकका लागि प्रशासकीय लगइन (<code>/admin</code>) प्रयोग गर्नुहोस्।</p>
   </footer>
 
   <!-- Dashboard JavaScript Module -->

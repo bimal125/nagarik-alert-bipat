@@ -649,3 +649,168 @@ footer a {
   color: var(--accent-blue);
   text-decoration: none;
 }
+
+/* Sticky Banner & Navigation Bar */
+.stick {
+  position: sticky;
+  top: 0;
+  z-index: 990;
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.safety-banner {
+  margin: 0;
+  padding: 10px 16px;
+  background: #9f1239;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.police-alert {
+  margin: 1.5rem 0 1rem;
+  padding: 1.2rem 1.5rem;
+  background: #7f1d1d;
+  color: #ffffff;
+  border-radius: var(--radius-lg);
+  border: 3px solid #facc15;
+  box-shadow: 0 10px 30px rgba(127, 29, 29, 0.25);
+}
+
+.police-alert-text {
+  font-weight: 800;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.police-alert-text .src {
+  display: inline-block;
+  margin-left: 6px;
+  background: #facc15;
+  color: #7f1d1d;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .03em;
+  padding: 2px 8px;
+  border-radius: 999px;
+  vertical-align: middle;
+}
+
+.police-alert-phones {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(250, 204, 21, 0.35);
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+
+.police-alert-phones a {
+  color: #fde68a;
+  text-decoration: none;
+}
+.police-alert-phones a:hover {
+  text-decoration: underline;
+}
+
+/* Horizontal Chip Pill Bar */
+.chips {
+  position: relative;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+.chips::-webkit-scrollbar { display: none; }
+
+.chips-inner {
+  width: max-content;
+  min-width: 100%;
+  margin: 0 auto;
+  padding: 8px 16px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.chips a {
+  display: inline-block;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--input-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.chips a:hover, .chips a.active {
+  border-color: #c41e3a;
+  background: #c41e3a;
+  color: #ffffff;
+}
+
+.chips a.home-btn {
+  background: #c41e3a;
+  color: #ffffff;
+  border-color: #c41e3a;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  min-width: 36px;
+  height: 36px;
+  padding: 0;
+}
+
+/* Custom Map Pins & Legend */
+.map-pin {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #0e7490;
+  color: #ffffff;
+  font: 800 12px/28px "Noto Sans Devanagari", sans-serif;
+  text-align: center;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.4);
+}
+.map-pin.start { background: #c41e3a; }
+.map-pin.risk { background: #d97706; }
+
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin: 12px 0 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+.map-legend i {
+  display: inline-block;
+  width: 18px;
+  height: 6px;
+  border-radius: 4px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.map-legend .solid { background: #c41e3a; }
+.map-legend .dash { background: repeating-linear-gradient(90deg, #d97706 0 8px, transparent 8px 12px); }
+.map-legend .pin {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  display: inline-block;
+}
+.map-legend .pin.start { background: #c41e3a; }
+.map-legend .pin.hit { background: #0e7490; }
+.map-legend .pin.risk { background: #d97706; }
