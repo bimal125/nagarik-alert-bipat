@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>प्रशासकीय नियन्त्रण कक्ष (Admin Panel) | नागरिक अलर्ट विपद् सूचना</title>
+  <meta name="description" content="भोटेकोशी नदी बाढी तथा पहिरो विपद् सूचना ड्यासबोर्ड डाटा अद्यावधिक गर्ने प्रशासकीय प्रणाली">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="/static/css/style.css">
+  
+  <style>
+    .admin-nav-tabs {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.75rem;
+    }
+    .admin-tab {
+      background: var(--input-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 0.6rem 1.2rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .admin-tab:hover {
+      border-color: var(--accent-blue);
+      color: var(--text-main);
+    }
+    .admin-tab.active {
+      background: var(--accent-blue);
+      color: white;
+      border-color: var(--accent-blue);
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+    .form-control {
+      width: 100%;
+      padding: 0.6rem 0.9rem;
+      background: var(--input-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--input-text);
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-control:focus {
+      border-color: var(--accent-blue);
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .btn-save {
+      background: linear-gradient(135deg, var(--accent-emerald), #059669);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.75rem;
+      border-radius: var(--radius-md);
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      font-family: inherit;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+      transition: all 0.2s;
+    }
+    .btn-save:hover {
+      opacity: 0.95;
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background: var(--input-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-md);
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--accent-blue);
+    }
+    .editor-textarea {
+      width: 100%;
+      height: 480px;
+      font-family: monospace;
+      font-size: 0.9rem;
+      background: var(--input-bg);
+      color: var(--input-text);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      resize: vertical;
+      line-height: 1.4;
+    }
+    .status-msg {
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      margin-bottom: 1rem;
+      font-weight: 700;
+      display: none;
+    }
+    .status-msg.success {
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid var(--accent-emerald);
+      color: var(--accent-emerald);
+      display: block;
+    }
+    .status-msg.error {
+      background: rgba(239, 68, 68, 0.2);
+      border: 1px solid var(--primary-red);
+      color: var(--primary-red);
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Top Header -->
+    <header>
+      <div class="top-bar">
+        <div class="brand">
+          <img src="/static/images/nagarikalert_logo_white.png" alt="NagarikAlert Logo" class="brand-logo logo-for-dark">
+          <img src="/static/images/nagarikalert_logo.png" alt="NagarikAlert Logo" class="brand-logo logo-for-light">
+          <div class="title-area">
+            <h1>प्रशासकीय नियन्त्रण कक्ष (Admin Control Panel)</h1>
+            <p>नागरिक अलर्ट | विपद् डाटा व्यवस्थापन तथा प्रत्यक्ष अद्यावधिक (Live JSON Editor)</p>
+          </div>
+        </div>
+
+        <div class="header-status">
+          <button class="theme-toggle-btn" id="theme-toggle-btn" onclick="toggleTheme()">☀️ Light</button>
+          <button class="btn-secondary" onclick="handleAdminLogout()">🚪 लगआउट (Logout)</button>
+          <a href="/" class="btn-secondary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem;">🌐 मुख्य ड्यासबोर्डमा फर्कनुहोस्</a>
+        </div>
+      </div>
+    </header>
+
+    <div id="status-alert" class="status-msg"></div>
+
+    <!-- Admin Navigation Tabs -->
+    <div class="admin-nav-tabs">
+      <button class="admin-tab active" onclick="switchAdminTab('summary', this)">📊 मुख्य क्षति विवरण (Summary)</button>
+      <button class="admin-tab" onclick="switchAdminTab('localgov', this)">🏛️ स्थानीय तह तथा वडा (Local Govs)</button>
+      <button class="admin-tab" onclick="switchAdminTab('roads', this)">🛣️ सडक तथा शिविर (Infrastructure)</button>
+      <button class="admin-tab" onclick="switchAdminTab('rawjson', this)">💻 Raw JSON Editor</button>
+    </div>
+
+    <!-- TAB 1: OVERALL SUMMARY EDITOR -->
+    <section id="tab-summary" class="panel">
+      <div class="panel-header">
+        <div class="panel-title">📊 कुल मानवीय क्षति र स्थिति सम्पादन (Overall Disaster Statistics)</div>
+        <span style="font-size: 0.85rem; color: var(--text-muted);">यहाँ अद्यावधिक गरिएको विवरण तत्काल ड्यासबोर्डमा देखिनेछ</span>
+      </div>
+
+      <div class="grid-3">
+        <div class="form-group">
+          <label for="input-deaths">कुल मृत्यु (Total Deaths)</label>
+          <input type="number" id="input-deaths" class="form-control" min="0">
+        </div>
+        <div class="form-group">
+          <label for="input-missing">कुल बेपत्ता (Total Missing)</label>
+          <input type="number" id="input-missing" class="form-control" min="0">
+        </div>
+        <div class="form-group">
+          <label for="input-injured">कुल घाइते (Total Injured)</label>
+          <input type="number" id="input-injured" class="form-control" min="0">
+        </div>
+        <div class="form-group">
+          <label for="input-displaced">विस्थापित परिवार (Displaced Families)</label>
+          <input type="number" id="input-displaced" class="form-control" min="0">
+        </div>
+        <div class="form-group">
+          <label for="input-destroyed">पूर्ण क्षति घर (Destroyed Houses)</label>
+          <input type="number" id="input-destroyed" class="form-control" min="0">
+        </div>
+        <div class="form-group">
+          <label for="input-rescued">उद्धार गरिएका (Rescued People)</label>
+          <input type="number" id="input-rescued" class="form-control" min="0">
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-top: 1.5rem;">
+        <label for="input-alert-level">जोखिम चेतावनी स्तर (Alert Level)</label>
+        <input type="text" id="input-alert-level" class="form-control" placeholder="उदा: अत्यधिक जोखिम / संकटग्रस्त क्षेत्र">
+      </div>
+
+      <div class="form-group">
+        <label for="input-last-updated">अन्तिम अद्यावधिक समय (Last Updated Time)</label>
+        <input type="text" id="input-last-updated" class="form-control" placeholder="उदा: २०८३-०५-१० १४:३०:००">
+      </div>
+
+      <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+        <button class="btn-save" onclick="saveAdminData()">💾 परिवर्तन बचत गर्नुहोस् (Save & Broadcast)</button>
+        <button class="btn-secondary" onclick="loadAdminData()">🔄 डेटा पुनः लोड गर्नुहोस् (Reload)</button>
+      </div>
+    </section>
+
+    <!-- TAB 2: LOCAL GOVERNMENTS & WARDS EDITOR -->
+    <section id="tab-localgov" class="panel" style="display: none;">
+      <div class="panel-header">
+        <div class="panel-title">🏛️ स्थानीय तह तथा वडागत क्षति (Local Governments Breakdown)</div>
+      </div>
+      <div id="localgov-editor-container">
+        <!-- Rendered dynamically -->
+      </div>
+      <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+        <button class="btn-save" onclick="saveAdminData()">💾 परिवर्तन बचत गर्नुहोस् (Save & Broadcast)</button>
+      </div>
+    </section>
+
+    <!-- TAB 3: INFRASTRUCTURE & ROADS EDITOR -->
+    <section id="tab-roads" class="panel" style="display: none;">
+      <div class="panel-header">
+        <div class="panel-title">🛣️ सडक स्थिति र आश्रय शिविर (Infrastructure & Relief Camps)</div>
+      </div>
+      
+      <h4 style="margin-bottom: 1rem; color: var(--accent-orange);">📍 अरनिको राजमार्ग सडक स्थिति:</h4>
+      <div id="roads-editor-container"></div>
+
+      <h4 style="margin: 2rem 0 1rem; color: var(--accent-emerald);">⛺ आश्रय शिविर स्थिति:</h4>
+      <div id="shelters-editor-container"></div>
+
+      <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+        <button class="btn-save" onclick="saveAdminData()">💾 परिवर्तन बचत गर्नुहोस् (Save & Broadcast)</button>
+      </div>
+    </section>
+
+    <!-- TAB 4: RAW JSON EDITOR -->
+    <section id="tab-rawjson" class="panel" style="display: none;">
+      <div class="panel-header">
+        <div class="panel-title">💻 प्रत्यक्ष JSON कोड सम्पादक (Raw disaster_data.json)</div>
+        <button class="btn-secondary" onclick="formatRawJson()" style="font-size: 0.85rem; padding: 0.3rem 0.75rem;">✨ JSON ढाँचा मिलाउनुहोस् (Format JSON)</button>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1rem;">तपाईं सिधै <code>disaster_data.json</code> को पूर्ण डाटा यहाँ सम्पादन गरी सेव गर्न सक्नुहुन्छ।</p>
+      
+      <textarea id="raw-json-textarea" class="editor-textarea" spellcheck="false"></textarea>
+
+      <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+        <button class="btn-save" onclick="saveRawJsonData()">💾 सेव र ब्रोडकास्ट गर्नुहोस् (Save Raw JSON)</button>
+        <button class="btn-secondary" onclick="syncRawJsonFromState()">🔄 Form बाट JSON अपडेट गर्नुहोस्</button>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Live Toast Notification -->
+  <div id="live-toast" class="live-toast">
+    ✅ <span>डाटा सफलतापूर्वक अद्यावधिक भयो! (Data Updated Successfully)</span>
+  </div>
+
+  <!-- Admin JavaScript -->
+  <script>
+    let adminData = null;
+
+    // Theme Switcher
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      updateThemeBtn(savedTheme);
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateThemeBtn(next);
+    }
+
+    function updateThemeBtn(t) {
+      const btn = document.getElementById('theme-toggle-btn');
+      if (btn) btn.innerText = t === 'dark' ? '☀️ Light' : '🌙 Dark';
+    }
+
+    // Switch Admin Tabs
+    function switchAdminTab(tabName, btn) {
+      document.querySelectorAll('.admin-tab').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      document.getElementById('tab-summary').style.display = tabName === 'summary' ? 'block' : 'none';
+      document.getElementById('tab-localgov').style.display = tabName === 'localgov' ? 'block' : 'none';
+      document.getElementById('tab-roads').style.display = tabName === 'roads' ? 'block' : 'none';
+      document.getElementById('tab-rawjson').style.display = tabName === 'rawjson' ? 'block' : 'none';
+
+      if (tabName === 'rawjson') {
+        syncRawJsonFromState();
+      }
+    }
+
+    // Show status message
+    function showStatus(msg, isSuccess = true) {
+      const alert = document.getElementById('status-alert');
+      alert.className = `status-msg ${isSuccess ? 'success' : 'error'}`;
+      alert.innerText = msg;
+      setTimeout(() => alert.style.display = 'none', 4000);
+    }
+
+    // Load Data from backend API
+    async function loadAdminData() {
+      try {
+        const res = await fetch('/api/data?t=' + Date.now());
+        if (!res.ok) throw new Error('Failed to load data');
+        adminData = await res.json();
+        
+        populateFormValues();
+        renderLocalGovEditors();
+        renderRoadsEditors();
+        renderSheltersEditors();
+        syncRawJsonFromState();
+
+      } catch (err) {
+        showStatus('डाटा लोड गर्दा त्रुटि भयो: ' + err.message, false);
+      }
+    }
+
+    function populateFormValues() {
+      if (!adminData) return;
+      const summary = adminData.overall_summary || {};
+      document.getElementById('input-deaths').value = summary.total_deaths || 0;
+      document.getElementById('input-missing').value = summary.total_missing || 0;
+      document.getElementById('input-injured').value = summary.total_injured || 0;
+      document.getElementById('input-displaced').value = summary.displaced_families || 0;
+      document.getElementById('input-destroyed').value = summary.destroyed_houses || 0;
+      document.getElementById('input-rescued').value = summary.rescued_people || 0;
+
+      if (adminData.disaster_info) {
+        document.getElementById('input-alert-level').value = adminData.disaster_info.alert_level_np || '';
+        document.getElementById('input-last-updated').value = adminData.disaster_info.last_updated || '';
+      }
+    }
+
+    function readFormValues() {
+      if (!adminData) adminData = {};
+      if (!adminData.overall_summary) adminData.overall_summary = {};
+      
+      adminData.overall_summary.total_deaths = parseInt(document.getElementById('input-deaths').value, 10) || 0;
+      adminData.overall_summary.total_missing = parseInt(document.getElementById('input-missing').value, 10) || 0;
+      adminData.overall_summary.total_injured = parseInt(document.getElementById('input-injured').value, 10) || 0;
+      adminData.overall_summary.displaced_families = parseInt(document.getElementById('input-displaced').value, 10) || 0;
+      adminData.overall_summary.destroyed_houses = parseInt(document.getElementById('input-destroyed').value, 10) || 0;
+      adminData.overall_summary.rescued_people = parseInt(document.getElementById('input-rescued').value, 10) || 0;
+
+      if (!adminData.disaster_info) adminData.disaster_info = {};
+      adminData.disaster_info.alert_level_np = document.getElementById('input-alert-level').value;
+      adminData.disaster_info.last_updated = document.getElementById('input-last-updated').value;
+    }
+
+    // Render Local Gov Editor Controls
+    function renderLocalGovEditors() {
+      const container = document.getElementById('localgov-editor-container');
+      if (!container || !adminData || !adminData.local_governments) return;
+
+      let html = '';
+      adminData.local_governments.forEach((gov, idx) => {
+        html += `
+          <div class="card-item" style="margin-bottom: 1.5rem;">
+            <h3 style="margin-bottom: 1rem; color: var(--accent-blue);">🏛️ ${gov.name_np} (${gov.type})</h3>
+            <div class="grid-3">
+              <div class="form-group">
+                <label>मृत्यु (Deaths)</label>
+                <input type="number" class="form-control" value="${gov.casualties?.deaths || 0}" onchange="adminData.local_governments[${idx}].casualties.deaths = parseInt(this.value, 10) || 0">
+              </div>
+              <div class="form-group">
+                <label>बेपत्ता (Missing)</label>
+                <input type="number" class="form-control" value="${gov.casualties?.missing || 0}" onchange="adminData.local_governments[${idx}].casualties.missing = parseInt(this.value, 10) || 0">
+              </div>
+              <div class="form-group">
+                <label>घाइते (Injured)</label>
+                <input type="number" class="form-control" value="${gov.casualties?.injured || 0}" onchange="adminData.local_governments[${idx}].casualties.injured = parseInt(this.value, 10) || 0">
+              </div>
+              <div class="form-group">
+                <label>विस्थापित परिवार (Displaced)</label>
+                <input type="number" class="form-control" value="${gov.displaced_families || 0}" onchange="adminData.local_governments[${idx}].displaced_families = parseInt(this.value, 10) || 0">
+              </div>
+              <div class="form-group">
+                <label>पूर्ण क्षति घर (Destroyed)</label>
+                <input type="number" class="form-control" value="${gov.destroyed_houses || 0}" onchange="adminData.local_governments[${idx}].destroyed_houses = parseInt(this.value, 10) || 0">
+              </div>
+              <div class="form-group">
+                <label>जोखिम स्थिति (Severity)</label>
+                <input type="text" class="form-control" value="${gov.severity || ''}" onchange="adminData.local_governments[${idx}].severity = this.value">
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      container.innerHTML = html;
+    }
+
+    function renderRoadsEditors() {
+      const container = document.getElementById('roads-editor-container');
+      if (!container || !adminData || !adminData.road_conditions) return;
+
+      let html = '';
+      adminData.road_conditions.forEach((road, idx) => {
+        html += `
+          <div class="card-item" style="margin-bottom: 1rem;">
+            <div class="grid-3">
+              <div class="form-group">
+                <label>सडक खण्ड (Section)</label>
+                <input type="text" class="form-control" value="${road.section_np || ''}" onchange="adminData.road_conditions[${idx}].section_np = this.value">
+              </div>
+              <div class="form-group">
+                <label>स्थिति (Status)</label>
+                <input type="text" class="form-control" value="${road.status_np || ''}" onchange="adminData.road_conditions[${idx}].status_np = this.value">
+              </div>
+              <div class="form-group">
+                <label>प्रभाव विवरण (Impact)</label>
+                <input type="text" class="form-control" value="${road.impact_np || ''}" onchange="adminData.road_conditions[${idx}].impact_np = this.value">
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      container.innerHTML = html;
+    }
+
+    function renderSheltersEditors() {
+      const container = document.getElementById('shelters-editor-container');
+      if (!container || !adminData || !adminData.shelter_camps) return;
+
+      let html = '';
+      adminData.shelter_camps.forEach((camp, idx) => {
+        html += `
+          <div class="card-item" style="margin-bottom: 1rem;">
+            <div class="grid-3">
+              <div class="form-group">
+                <label>शिविर नाम (Camp Name)</label>
+                <input type="text" class="form-control" value="${camp.camp_name_np || ''}" onchange="adminData.shelter_camps[${idx}].camp_name_np = this.value">
+              </div>
+              <div class="form-group">
+                <label>वर्तमान आश्रित परिवार (Current Families)</label>
+                <input type="number" class="form-control" value="${camp.current_families || 0}" onchange="adminData.shelter_camps[${idx}].current_families = parseInt(this.value, 10) || 0">
+              </div>
+              <div class="form-group">
+                <label>स्थिति (Status)</label>
+                <input type="text" class="form-control" value="${camp.status || ''}" onchange="adminData.shelter_camps[${idx}].status = this.value">
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      container.innerHTML = html;
+    }
+
+    function syncRawJsonFromState() {
+      readFormValues();
+      const area = document.getElementById('raw-json-textarea');
+      if (area && adminData) {
+        // Clean temporary metadata before displaying
+        const cleanObj = { ...adminData };
+        delete cleanObj._server_mtime;
+        area.value = JSON.stringify(cleanObj, null, 2);
+      }
+    }
+
+    function formatRawJson() {
+      const area = document.getElementById('raw-json-textarea');
+      try {
+        const parsed = JSON.parse(area.value);
+        area.value = JSON.stringify(parsed, null, 2);
+        showStatus('JSON ढाँचा मिलाइयो! (JSON Formatted Cleanly)');
+      } catch (err) {
+        showStatus('JSON ढाँचा अमान्य छ: ' + err.message, false);
+      }
+    }
+
+    // Save Admin Data via API
+    async function saveAdminData() {
+      readFormValues();
+      await sendUpdatePayload(adminData);
+    }
+
+    async function saveRawJsonData() {
+      const area = document.getElementById('raw-json-textarea');
+      try {
+        const parsed = JSON.parse(area.value);
+        adminData = parsed;
+        await sendUpdatePayload(parsed);
+      } catch (err) {
+        showStatus('अमान्य JSON! कृपया ढाँचा जाँच गर्नुहोस्: ' + err.message, false);
+      }
+    }
+
+    async function sendUpdatePayload(payload) {
+      try {
+        const res = await fetch('/api/admin/update', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (!res.ok) {
+          const errData = await res.json();
+          throw new Error(errData.detail || 'Save failed');
+        }
+
+        const resData = await res.json();
+        showStatus('✅ डाटा सफलतापूर्वक सेव भयो! ड्यासबोर्डमा प्रत्यक्ष अपडेट भयो।');
+        
+        // Reload values
+        loadAdminData();
+
+      } catch (err) {
+        showStatus('सेभ गर्दा त्रुटि: ' + err.message, false);
+      }
+    }
+
+    async function handleAdminLogout() {
+      try {
+        await fetch('/api/admin/logout', { method: 'POST' });
+        window.location.reload();
+      } catch (err) {
+        console.error('Logout error:', err);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      loadAdminData();
+    });
+  </script>
+</body>
+</html>

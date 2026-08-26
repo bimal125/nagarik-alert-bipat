@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>प्रशासकीय लगइन (Admin Login) | नागरिक अलर्ट विपद् सूचना</title>
+  <meta name="description" content="नागरिक अलर्ट विपद् सूचना ड्यासबोर्ड प्रशासकीय लगइन पोर्टल">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="/static/css/style.css">
+  
+  <style>
+    .login-wrapper {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+    .login-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: var(--glass-shadow);
+    }
+    .login-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .login-brand-logo {
+      height: 56px;
+      margin-bottom: 1rem;
+      object-fit: contain;
+    }
+    .login-header h2 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 0.25rem;
+    }
+    .login-header p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
+    }
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: var(--input-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      color: var(--input-text);
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-control:focus {
+      border-color: var(--accent-blue);
+    }
+    .btn-login {
+      width: 100%;
+      background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+      color: white;
+      border: none;
+      padding: 0.85rem;
+      border-radius: var(--radius-md);
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      font-family: inherit;
+      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+      margin-top: 0.5rem;
+      transition: all 0.2s;
+    }
+    .btn-login:hover {
+      opacity: 0.95;
+      transform: translateY(-2px);
+    }
+    .login-error {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid var(--primary-red);
+      color: var(--primary-red);
+      padding: 0.75rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      display: none;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Top Header Bar -->
+    <header>
+      <div class="top-bar">
+        <div class="brand">
+          <img src="/static/images/nagarikalert_logo_white.png" alt="NagarikAlert Logo" class="brand-logo logo-for-dark">
+          <img src="/static/images/nagarikalert_logo.png" alt="NagarikAlert Logo" class="brand-logo logo-for-light">
+          <div class="title-area">
+            <h1>नागरिक अलर्ट विपद् सूचना ड्यासबोर्ड</h1>
+            <p>प्रशासकीय लगइन सुरक्षा प्रणाली (Protected Admin Portal)</p>
+          </div>
+        </div>
+
+        <div class="header-status">
+          <button class="theme-toggle-btn" id="theme-toggle-btn" onclick="toggleTheme()">☀️ Light</button>
+          <a href="/" class="btn-secondary" style="text-decoration: none; padding: 0.45rem 0.85rem; font-size: 0.85rem; font-weight: 700;">🌐 मुख्य ड्यासबोर्ड</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="login-wrapper">
+      <div class="login-card">
+        <div class="login-header">
+          <img src="/static/images/nagarikalert_logo_white.png" alt="NagarikAlert Logo" class="login-brand-logo logo-for-dark">
+          <img src="/static/images/nagarikalert_logo.png" alt="NagarikAlert Logo" class="login-brand-logo logo-for-light">
+          <h2>प्रशासकीय लगइन (Admin Sign In)</h2>
+          <p>विपद् डाटा सम्पादन गर्न इमेल र पासवर्ड प्रविष्ट गर्नुहोस्</p>
+        </div>
+
+        <div id="login-error-msg" class="login-error"></div>
+
+        <form id="admin-login-form" onsubmit="handleAdminLogin(event)">
+          <div class="form-group">
+            <label for="admin-email">प्रशासक इमेल (Email)</label>
+            <input type="email" id="admin-email" class="form-control" placeholder="admin@alpas.com" required autocomplete="username">
+          </div>
+
+          <div class="form-group">
+            <label for="admin-password">सुरक्षा पासवर्ड (Password)</label>
+            <input type="password" id="admin-password" class="form-control" placeholder="••••••••••••" required autocomplete="current-password">
+          </div>
+
+          <button type="submit" class="btn-login">🔑 लगइन गर्नुहोस् (Log In)</button>
+        </form>
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+    // Theme Switcher
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      updateThemeBtn(savedTheme);
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateThemeBtn(next);
+    }
+
+    function updateThemeBtn(t) {
+      const btn = document.getElementById('theme-toggle-btn');
+      if (btn) btn.innerText = t === 'dark' ? '☀️ Light' : '🌙 Dark';
+    }
+
+    async function handleAdminLogin(event) {
+      event.preventDefault();
+      const email = document.getElementById('admin-email').value.trim();
+      const password = document.getElementById('admin-password').value;
+      const errorBox = document.getElementById('login-error-msg');
+
+      errorBox.style.display = 'none';
+
+      try {
+        const res = await fetch('/api/admin/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+
+        if (!res.ok) {
+          const data = await res.json();
+          throw new Error(data.detail || 'लगइन असफल भयो। इमेल वा पासवर्ड मिलेन।');
+        }
+
+        // Reload page to enter protected admin panel
+        window.location.reload();
+
+      } catch (err) {
+        errorBox.innerText = err.message;
+        errorBox.style.display = 'block';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+    });
+  </script>
+</body>
+</html>
