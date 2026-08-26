@@ -25,6 +25,89 @@
   },
   "local_governments": [
     {
+      "id": "bidur_mun",
+      "name_np": "विदुर नगरपालिका",
+      "name_en": "Bidur Municipality",
+      "type": "नगरपालिका",
+      "total_wards": 13,
+      "severity": "सामान्य सतर्कता",
+      "severity_code": "info",
+      "latitude": 27.8863,
+      "longitude": 85.1578,
+      "casualties": {
+        "deaths": 0,
+        "missing": 0,
+        "injured": 0
+      },
+      "displaced_families": 0,
+      "destroyed_houses": 0,
+      "partially_damaged_houses": 0,
+      "helpline": "०१०-५६०१०० / ९८५१२०५६७८",
+      "contact_person": "प्रमुख: राजन श्रेष्ठ (९८५११००११२)",
+      "wards": [
+        {
+          "ward_no": 1,
+          "name_np": "त्रिशूली बजार",
+          "deaths": 0,
+          "missing": 0,
+          "injured": 0,
+          "displaced_families": 0,
+          "destroyed_houses": 0,
+          "status": "सामान्य / निगरानी जारी",
+          "relief_pct": 0,
+          "urgent_needs": "सामान्य"
+        },
+        {
+          "ward_no": 2,
+          "name_np": "विदुर",
+          "deaths": 0,
+          "missing": 0,
+          "injured": 0,
+          "displaced_families": 0,
+          "destroyed_houses": 0,
+          "status": "सामान्य / सडक अनुगमन जारी",
+          "relief_pct": 0,
+          "urgent_needs": "सामान्य"
+        },
+        {
+          "ward_no": 3,
+          "name_np": "खड्गभञ्ज्याङ",
+          "deaths": 0,
+          "missing": 0,
+          "injured": 0,
+          "displaced_families": 0,
+          "destroyed_houses": 0,
+          "status": "सामान्य / पहिरो सतर्कता",
+          "relief_pct": 0,
+          "urgent_needs": "सामान्य"
+        },
+        {
+          "ward_no": 4,
+          "name_np": "बट्टार",
+          "deaths": 0,
+          "missing": 0,
+          "injured": 0,
+          "displaced_families": 0,
+          "destroyed_houses": 0,
+          "status": "सामान्य / व्यापारिक बजार सुचारु",
+          "relief_pct": 0,
+          "urgent_needs": "सामान्य"
+        },
+        {
+          "ward_no": 5,
+          "name_np": "देवीघाट",
+          "deaths": 0,
+          "missing": 0,
+          "injured": 0,
+          "displaced_families": 0,
+          "destroyed_houses": 0,
+          "status": "सामान्य / नदी जलस्तर सामान्य",
+          "relief_pct": 0,
+          "urgent_needs": "सामान्य"
+        }
+      ]
+    },
+    {
       "id": "bhotekoshi_rm",
       "name_np": "भोटेकोशी गाउँपालिका",
       "name_en": "Bhotekoshi Rural Municipality",

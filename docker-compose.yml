@@ -3,7 +3,7 @@ services:
     build: .
     container_name: disaster_dashboard_server
     ports:
-      - "8000:8000"
+      - "8848:8000"
     volumes:
       - .:/app
     environment:
