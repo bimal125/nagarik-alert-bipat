@@ -42,7 +42,7 @@ async function fetchDashboardData(isManual = false) {
     // Update Header metadata
     if (data.disaster_info) {
       document.getElementById('dashboard-title').innerText = data.disaster_info.title_np || 'भोटेकोशी बाढी विपद् सूचना ड्यासबोर्ड';
-      document.getElementById('dashboard-sub').innerText = `${data.disaster_info.district_np || 'सिन्धुपाल्चोक'}, ${data.disaster_info.province_np || 'बागमती प्रदेश'} | सूचना तथा राहत व्यवस्थापन`;
+      document.getElementById('dashboard-sub').innerText = `${data.disaster_info.district_np || 'रसुवा र नुवाकोट'}, ${data.disaster_info.province_np || 'बागमती प्रदेश'} | सूचना तथा राहत व्यवस्थापन`;
       document.getElementById('last-updated-time').innerText = data.disaster_info.last_updated || 'भर्खरै';
       document.getElementById('alert-text').innerText = data.disaster_info.alert_level_np || 'अत्यधिक जोखिम क्षेत्र';
     }
