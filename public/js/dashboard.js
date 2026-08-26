@@ -500,14 +500,14 @@ function searchWards(query) {
 
 // Light / Dark Theme Management
 function initTheme() {
-  const savedTheme = localStorage.getItem('theme') || 'dark';
+  const savedTheme = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-theme', savedTheme);
   updateThemeButtonText(savedTheme);
 }
 
 function toggleTheme() {
-  const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
   document.documentElement.setAttribute('data-theme', newTheme);
   localStorage.setItem('theme', newTheme);
   updateThemeButtonText(newTheme);
@@ -516,7 +516,7 @@ function toggleTheme() {
 function updateThemeButtonText(theme) {
   const btn = document.getElementById('theme-toggle-btn');
   if (btn) {
-    btn.innerHTML = theme === 'dark' ? '☀️ Light' : '🌙 Dark';
+    btn.innerHTML = theme === 'light' ? '🌙 Dark' : '☀️ Light';
   }
 }
 

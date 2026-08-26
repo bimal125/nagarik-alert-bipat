@@ -28,12 +28,12 @@ def test_local_governments_structure():
     data = response.json()
     local_govs = data["local_governments"]
     
-    # Check that Bhotekoshi Rural Municipality exists
-    bhotekoshi = next((item for item in local_govs if item["id"] == "bhotekoshi_rm"), None)
-    assert bhotekoshi is not None
-    assert bhotekoshi["name_np"] == "भोटेकोशी गाउँपालिका"
-    assert "wards" in bhotekoshi
-    assert len(bhotekoshi["wards"]) > 0
+    # Check that Bidur Municipality exists
+    bidur = next((item for item in local_govs if item["id"] == "bidur_mun"), None)
+    assert bidur is not None
+    assert bidur["name_np"] == "विदुर नगरपालिका"
+    assert "wards" in bidur
+    assert len(bidur["wards"]) > 0
 
 def test_summary_endpoint():
     response = client.get("/api/summary")

@@ -237,7 +237,7 @@
         <div class="panel-title">🛣️ सडक स्थिति र आश्रय शिविर (Infrastructure & Relief Camps)</div>
       </div>
       
-      <h4 style="margin-bottom: 1rem; color: var(--accent-orange);">📍 अरनिको राजमार्ग सडक स्थिति:</h4>
+      <h4 style="margin-bottom: 1rem; color: var(--accent-orange);">📍 पृथ्वी राजमार्ग तथा सडक स्थिति:</h4>
       <div id="roads-editor-container"></div>
 
       <h4 style="margin: 2rem 0 1rem; color: var(--accent-emerald);">⛺ आश्रय शिविर स्थिति:</h4>
@@ -277,14 +277,14 @@
 
     // Theme Switcher
     function initTheme() {
-      const savedTheme = localStorage.getItem('theme') || 'dark';
+      const savedTheme = localStorage.getItem('theme') || 'light';
       document.documentElement.setAttribute('data-theme', savedTheme);
       updateThemeBtn(savedTheme);
     }
 
     function toggleTheme() {
-      const current = document.documentElement.getAttribute('data-theme') || 'dark';
-      const next = current === 'dark' ? 'light' : 'dark';
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'light' ? 'dark' : 'light';
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('theme', next);
       updateThemeBtn(next);
@@ -292,7 +292,7 @@
 
     function updateThemeBtn(t) {
       const btn = document.getElementById('theme-toggle-btn');
-      if (btn) btn.innerText = t === 'dark' ? '☀️ Light' : '🌙 Dark';
+      if (btn) btn.innerText = t === 'light' ? '🌙 Dark' : '☀️ Light';
     }
 
     // Switch Admin Tabs
