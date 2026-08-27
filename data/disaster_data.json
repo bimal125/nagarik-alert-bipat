@@ -2,31 +2,31 @@
   "disaster_info": {
     "title_np": "भोटेकोशी–त्रिशूली बाढी विपद् सूचना बुलेटिन",
     "title_en": "Bhotekoshi-Trishuli Flood Disaster Information Bulletin",
-    "district_np": "रसुवा, नुवाकोट, धादिङ, चितवन, गोरखा र तनहुँ",
-    "district_en": "Rasuwa, Nuwakot, Dhading, Chitwan, Gorkha, Tanahun",
-    "province_np": "बागमती प्रदेश",
-    "province_en": "Bagmati Province",
-    "river_np": "भोटेकोशी र त्रिशूली नदी",
-    "river_en": "Bhotekoshi & Trishuli River",
-    "last_updated": "२०८३-०५-१० २१:३०:०० (2026-08-26 21:30 NPT)",
-    "alert_level_np": "अत्यधिक जोखिम / उच्च सतर्कता",
-    "alert_level_en": "High Risk / Monitoring Zone",
-    "data_version": "1.3.0"
+    "district_np": "रसुवा, नुवाकोट, धादिङ, चितवन, गोरखा, तनहुँ र नवलपरासी पूर्व",
+    "district_en": "Rasuwa, Nuwakot, Dhading, Chitwan, Gorkha, Tanahun, Nawalparasi East",
+    "province_np": "बागमती र गण्डकी प्रदेश",
+    "province_en": "Bagmati & Gandaki Provinces",
+    "river_np": "भोटेकोशी, त्रिशूली र नारायणी नदी",
+    "river_en": "Bhotekoshi, Trishuli & Narayani Rivers",
+    "last_updated": "२०८३-०५-११ ०६:००:०० (2026-08-27 06:00 NPT)",
+    "alert_level_np": "अत्यधिक जोखिम / NDRRMA SitRep-3 अद्यावधिक",
+    "alert_level_en": "High Risk / NDRRMA SitRep-3 Updated",
+    "data_version": "1.4.0"
   },
   "overall_summary": {
-    "total_deaths": 95,
-    "total_missing": 706,
-    "total_injured": 63,
+    "total_deaths": 123,
+    "total_missing": 245,
+    "total_injured": 75,
     "displaced_families": 300,
     "destroyed_houses": 100,
     "partially_damaged_houses": 45,
     "relief_camps": 6,
-    "rescued_people": 114
+    "rescued_people": 209
   },
   "local_governments": [
     {
       "id": "gosaikunda_rm",
-      "name_np": "गोसाईंकोण्ड गाउँपालिका",
+      "name_np": "गोसाईंकुण्ड गाउँपालिका",
       "name_en": "Gosaikunda Rural Municipality",
       "type": "गाउँपालिका (रसुवा)",
       "total_wards": 6,
@@ -36,8 +36,8 @@
       "longitude": 85.3789,
       "casualties": {
         "deaths": 1,
-        "missing": 555,
-        "injured": 24
+        "missing": 161,
+        "injured": 43
       },
       "displaced_families": 200,
       "destroyed_houses": 85,
@@ -50,7 +50,7 @@
           "ward_no": 1,
           "name_np": "टिमुरे / रसुवागढी",
           "deaths": 1,
-          "missing": 11,
+          "missing": 101,
           "injured": 24,
           "displaced_families": 150,
           "destroyed_houses": 70,
@@ -75,7 +75,7 @@
           "name_np": "धुञ्चे सदरमुकाम",
           "deaths": 0,
           "missing": 0,
-          "injured": 0,
+          "injured": 19,
           "displaced_families": 20,
           "destroyed_houses": 5,
           "status": "८५ जनाको हवाई उद्धार सम्पन्न, रसुवा अस्पतालमा २१ घाइते उपचाररत",
@@ -93,6 +93,306 @@
           "status": "लाङटाङ २० मेगावाट आयोजना सुरुङमा ३५ मजदुरसहित ६० जना सम्पर्कविहीन",
           "relief_pct": 20,
           "urgent_needs": "खोजी तथा उद्धार टोली"
+        }
+      ]
+    },
+    {
+      "id": "bidur_mun",
+      "name_np": "विदुर नगरपालिका",
+      "name_en": "Bidur Municipality",
+      "type": "नगरपालिका (नुवाकोट)",
+      "total_wards": 13,
+      "severity": "अत्यधिक प्रभावित",
+      "severity_code": "danger",
+      "latitude": 27.886,
+      "longitude": 85.158,
+      "casualties": {
+        "deaths": 11,
+        "missing": 1,
+        "injured": 24
+      },
+      "displaced_families": 30,
+      "destroyed_houses": 4,
+      "partially_damaged_houses": 10,
+      "rescued_people": 47,
+      "helpline": "०१०-५६०००१ / ९८५११४७७७७",
+      "contact_person": "मेयर: राजन श्रेष्ठ / प्रमुख प्रशासकीय अधिकृत: सुभाकर पौडेल (९८५११४५६७२)",
+      "wards": [
+        {
+          "ward_no": 3,
+          "name_np": "विदुर-३ खम्पाक्याम्प (केन्द्रीय कारागार)",
+          "deaths": 3,
+          "missing": 0,
+          "injured": 8,
+          "displaced_families": 15,
+          "destroyed_houses": 2,
+          "status": "१००० कैदीबन्दी सुरक्षित, कारागार प्रशासन भवन क्षति, ३ जनाको हवाई उद्धार",
+          "relief_pct": 75,
+          "urgent_needs": "कारागार सुरक्षा, स्वास्थ्य उपचार"
+        },
+        {
+          "ward_no": 5,
+          "name_np": "विदुर-५ माझिटार / बेत्रावती / त्रिशूली",
+          "deaths": 8,
+          "missing": 1,
+          "injured": 16,
+          "displaced_families": 15,
+          "destroyed_houses": 2,
+          "status": "त्रिशूली नदी कटान, बेत्रावती बजार क्षति, २ पक्की पुल बगे, ७ टावर क्षति",
+          "relief_pct": 60,
+          "urgent_needs": "स्वास्थ्य उपचार, खाद्यान्न"
+        }
+      ]
+    },
+    {
+      "id": "ichhakamana_rm",
+      "name_np": "इच्छाकामना / भरतपुर महानगर",
+      "name_en": "Ichhakamana / Bharatpur Metro",
+      "type": "स्थानीय तह (चितवन)",
+      "total_wards": 7,
+      "severity": "अत्यधिक प्रभावित",
+      "severity_code": "danger",
+      "latitude": 27.81,
+      "longitude": 84.58,
+      "casualties": {
+        "deaths": 64,
+        "missing": 0,
+        "injured": 0
+      },
+      "displaced_families": 20,
+      "destroyed_houses": 5,
+      "partially_damaged_houses": 0,
+      "rescued_people": 15,
+      "helpline": "०५६-५८०१००",
+      "contact_person": "प्रमुख प्रशासकीय अधिकृत: लोक राज खत्री (९८४४८४२२०४)",
+      "wards": [
+        {
+          "ward_no": 3,
+          "name_np": "मुग्लिन / फिस्लिङ / देवघाट तटीय क्षेत्र",
+          "deaths": 64,
+          "missing": 0,
+          "injured": 0,
+          "displaced_families": 20,
+          "destroyed_houses": 5,
+          "status": "नारायणी र त्रिशूली बाढीका कारण तटीय क्षेत्रबाट ६४ शव फेला, उद्धार जारी",
+          "relief_pct": 50,
+          "urgent_needs": "शव व्यवस्थापन, पहिरो तथा बाढी नियन्त्रण"
+        }
+      ]
+    },
+    {
+      "id": "gandaki_rm",
+      "name_np": "गण्डकी / भिमसेनथापा गाउँपालिका",
+      "name_en": "Gandaki / Bhimsen Thapa RM",
+      "type": "गाउँपालिका (गोरखा)",
+      "total_wards": 8,
+      "severity": "उच्च जोखिम क्षेत्र",
+      "severity_code": "danger",
+      "latitude": 27.89,
+      "longitude": 84.73,
+      "casualties": {
+        "deaths": 19,
+        "missing": 0,
+        "injured": 0
+      },
+      "displaced_families": 10,
+      "destroyed_houses": 2,
+      "partially_damaged_houses": 0,
+      "rescued_people": 10,
+      "helpline": "०६४-४२०१०१",
+      "contact_person": "प्रमुख प्रशासकीय अधिकृत: तुलसी राम आचार्य (९८५७६७६९६७)",
+      "wards": [
+        {
+          "ward_no": 1,
+          "name_np": "त्रिशूली किनार / बेनीघाट क्षेत्र",
+          "deaths": 19,
+          "missing": 0,
+          "injured": 0,
+          "displaced_families": 10,
+          "destroyed_houses": 2,
+          "status": "१९ शव फेला, बस यात्रु तथा तटीय क्षेत्र प्रभावित",
+          "relief_pct": 55,
+          "urgent_needs": "उद्धार तथा खोजी कार्य"
+        }
+      ]
+    },
+    {
+      "id": "gajuri_rm",
+      "name_np": "गजुरी / बेनीघाट रोराङ्ग गाउँपालिका",
+      "name_en": "Gajuri / Benighat Rorang RM",
+      "type": "गाउँपालिका (धादिङ)",
+      "total_wards": 10,
+      "severity": "अत्यधिक प्रभावित",
+      "severity_code": "danger",
+      "latitude": 27.8,
+      "longitude": 84.88,
+      "casualties": {
+        "deaths": 18,
+        "missing": 0,
+        "injured": 3
+      },
+      "displaced_families": 15,
+      "destroyed_houses": 2,
+      "partially_damaged_houses": 0,
+      "rescued_people": 3,
+      "helpline": "०१०-४००१०१",
+      "contact_person": "प्रमुख प्रशासकीय अधिकृत: जगदिश प्रसाद जोशी (९८४८८४१७४५)",
+      "wards": [
+        {
+          "ward_no": 1,
+          "name_np": "फुर्केखोला / मलेखु / आदमघाट",
+          "deaths": 18,
+          "missing": 0,
+          "injured": 3,
+          "displaced_families": 15,
+          "destroyed_houses": 2,
+          "status": "१८ शव प्राप्त, मलेखु जलमापन स्टेसन र पुल ध्वस्त",
+          "relief_pct": 60,
+          "urgent_needs": "सडक सञ्चालन, राहत वितरण"
+        }
+      ]
+    },
+    {
+      "id": "devghat_rm",
+      "name_np": "देवघाट / आँबुखैरेनी गाउँपालिका",
+      "name_en": "Devghat / Anbu Khaireni RM",
+      "type": "गाउँपालिका (तनहुँ)",
+      "total_wards": 6,
+      "severity": "उच्च सतर्कता",
+      "severity_code": "warning",
+      "latitude": 27.82,
+      "longitude": 84.45,
+      "casualties": {
+        "deaths": 9,
+        "missing": 0,
+        "injured": 0
+      },
+      "displaced_families": 5,
+      "destroyed_houses": 0,
+      "partially_damaged_houses": 0,
+      "rescued_people": 5,
+      "helpline": "०६५-५६०२०१",
+      "contact_person": "प्रमुख प्रशासकीय अधिकृत: प्रद्युम्न कुमार खड्का (९८४५०५०६८५)",
+      "wards": [
+        {
+          "ward_no": 5,
+          "name_np": "देवघाट संगम क्षेत्र",
+          "deaths": 9,
+          "missing": 0,
+          "injured": 0,
+          "displaced_families": 5,
+          "destroyed_houses": 0,
+          "status": "नारायणी-त्रिशूली संगममा ९ शव फेला",
+          "relief_pct": 70,
+          "urgent_needs": "सजकता"
+        }
+      ]
+    },
+    {
+      "id": "uttargaya_rm",
+      "name_np": "उत्तरगया गाउँपालिका",
+      "name_en": "Uttargaya Rural Municipality",
+      "type": "गाउँपालिका (रसुवा)",
+      "total_wards": 5,
+      "severity": "अत्यधिक जोखिम क्षेत्र",
+      "severity_code": "danger",
+      "latitude": 27.93,
+      "longitude": 85.18,
+      "casualties": {
+        "deaths": 0,
+        "missing": 0,
+        "injured": 2
+      },
+      "displaced_families": 40,
+      "destroyed_houses": 8,
+      "partially_damaged_houses": 10,
+      "rescued_people": 9,
+      "helpline": "०१०-५४०२०२",
+      "contact_person": "प्रमुख प्रशासकीय अधिकृत: जय राम उप्रेती (९८५१०९१५३४)",
+      "wards": [
+        {
+          "ward_no": 1,
+          "name_np": "मैलुङ / बेत्रावती",
+          "deaths": 0,
+          "missing": 0,
+          "injured": 2,
+          "displaced_families": 40,
+          "destroyed_houses": 8,
+          "status": "सुरक्षा पोस्ट (सशस्त्र ९) र बैंक शाखा बगेको, ९ जनाको हवाई उद्धार",
+          "relief_pct": 40,
+          "urgent_needs": "खोजीकार्य, राहत सामाग्री"
+        }
+      ]
+    },
+    {
+      "id": "belkotgadhi_mun",
+      "name_np": "बेलकोटगढी नगरपालिका",
+      "name_en": "Belkotgadhi Municipality",
+      "type": "नगरपालिका (नुवाकोट)",
+      "total_wards": 13,
+      "severity": "तटीय सतर्कता",
+      "severity_code": "warning",
+      "latitude": 27.812,
+      "longitude": 85.198,
+      "casualties": {
+        "deaths": 0,
+        "missing": 0,
+        "injured": 5
+      },
+      "displaced_families": 0,
+      "destroyed_houses": 0,
+      "partially_damaged_houses": 0,
+      "rescued_people": 0,
+      "helpline": "०१०-५४००८८",
+      "contact_person": "मेयर: जगतबहादुर गुरुङ / प्रमुख प्रशासकीय अधिकृत: नेत्र प्रसाद घिमिरे (९८५७०१५१८६)",
+      "wards": [
+        {
+          "ward_no": 5,
+          "name_np": "बेत्रावती-५",
+          "deaths": 0,
+          "missing": 0,
+          "injured": 5,
+          "displaced_families": 0,
+          "destroyed_houses": 0,
+          "status": "त्रिशूली नदी किनार जलसतह उच्च, टिचिङ अस्पतालमा उपचाररत",
+          "relief_pct": 90,
+          "urgent_needs": "सतर्कता"
+        }
+      ]
+    },
+    {
+      "id": "gaidakot_mun",
+      "name_np": "गैडाकोट नगरपालिका",
+      "name_en": "Gaidakot Municipality",
+      "type": "नगरपालिका (नवलपरासी पूर्व)",
+      "total_wards": 18,
+      "severity": "सतर्कता क्षेत्र",
+      "severity_code": "warning",
+      "latitude": 27.71,
+      "longitude": 84.41,
+      "casualties": {
+        "deaths": 1,
+        "missing": 0,
+        "injured": 0
+      },
+      "displaced_families": 0,
+      "destroyed_houses": 0,
+      "partially_damaged_houses": 0,
+      "rescued_people": 0,
+      "helpline": "०७८-५०१००१",
+      "contact_person": "प्रशासकीय प्रमुख",
+      "wards": [
+        {
+          "ward_no": 1,
+          "name_np": "नारायणी किनार",
+          "deaths": 1,
+          "missing": 0,
+          "injured": 0,
+          "displaced_families": 0,
+          "destroyed_houses": 0,
+          "status": "१ शव प्राप्त, नारायणी जलसतह उच्च सतर्कता",
+          "relief_pct": 85,
+          "urgent_needs": "सतर्कता"
         }
       ]
     },
@@ -133,42 +433,6 @@
       ]
     },
     {
-      "id": "uttargaya_rm",
-      "name_np": "उत्तरगया गाउँपालिका",
-      "name_en": "Uttargaya Rural Municipality",
-      "type": "गाउँपालिका (रसुवा)",
-      "total_wards": 5,
-      "severity": "अत्यधिक जोखिम क्षेत्र",
-      "severity_code": "danger",
-      "latitude": 27.93,
-      "longitude": 85.18,
-      "casualties": {
-        "deaths": 0,
-        "missing": 9,
-        "injured": 2
-      },
-      "displaced_families": 40,
-      "destroyed_houses": 8,
-      "partially_damaged_houses": 10,
-      "rescued_people": 9,
-      "helpline": "०१०-५४०२०२",
-      "contact_person": "प्रमुख प्रशासकीय अधिकृत: जय राम उप्रेती (९८५१०९१५३४)",
-      "wards": [
-        {
-          "ward_no": 1,
-          "name_np": "मैलुङ / बेत्रावती",
-          "deaths": 0,
-          "missing": 9,
-          "injured": 2,
-          "displaced_families": 40,
-          "destroyed_houses": 8,
-          "status": "सुरक्षा पोस्ट (सशस्त्र ९) र बैंक शाखा बगेको, ९ जनाको हवाई उद्धार",
-          "relief_pct": 40,
-          "urgent_needs": "खोजीकार्य, राहत सामाग्री"
-        }
-      ]
-    },
-    {
       "id": "naukunda_rm",
       "name_np": "नौकुण्डा गाउँपालिका",
       "name_en": "Naukunda Rural Municipality",
@@ -200,7 +464,7 @@
           "destroyed_houses": 0,
           "status": "सामान्य अवस्था",
           "relief_pct": 90,
-          "urgent_needs": "सजकता"
+          "urgent_needs": "सतर्कता"
         }
       ]
     },
@@ -239,104 +503,20 @@
           "urgent_needs": "निगरानी"
         }
       ]
-    },
-    {
-      "id": "bidur_mun",
-      "name_np": "विदुर नगरपालिका",
-      "name_en": "Bidur Municipality",
-      "type": "नगरपालिका (नुवाकोट)",
-      "total_wards": 13,
-      "severity": "अत्यधिक प्रभावित",
-      "severity_code": "danger",
-      "latitude": 27.886,
-      "longitude": 85.158,
-      "casualties": {
-        "deaths": 11,
-        "missing": 26,
-        "injured": 16
-      },
-      "displaced_families": 30,
-      "destroyed_houses": 4,
-      "partially_damaged_houses": 10,
-      "rescued_people": 3,
-      "helpline": "०१०-५६०००१ / ९८५११४७७७७",
-      "contact_person": "मेयर: राजन श्रेष्ठ / प्रमुख प्रशासकीय अधिकृत: सुभाकर पौडेल (९८५११४५६७२)",
-      "wards": [
-        {
-          "ward_no": 3,
-          "name_np": "विदुर-३ खम्पाक्याम्प (केन्द्रीय कारागार)",
-          "deaths": 3,
-          "missing": 10,
-          "injured": 8,
-          "displaced_families": 15,
-          "destroyed_houses": 2,
-          "status": "१००० कैदीबन्दी सुरक्षित, कारागार प्रशासन भवन क्षति, ३ जनाको हवाई उद्धार",
-          "relief_pct": 75,
-          "urgent_needs": "कारागार सुरक्षा, स्वास्थ्य उपचार"
-        },
-        {
-          "ward_no": 5,
-          "name_np": "विदुर-५ माझिटार / बेत्रावती / त्रिशूली",
-          "deaths": 8,
-          "missing": 16,
-          "injured": 8,
-          "displaced_families": 15,
-          "destroyed_houses": 2,
-          "status": "त्रिशूली नदी कटान, बेत्रावती बजार क्षति, २ पक्की पुल बगे, ७ टावर क्षति",
-          "relief_pct": 60,
-          "urgent_needs": "स्वास्थ्य उपचार, खाद्यान्न"
-        }
-      ]
-    },
-    {
-      "id": "belkotgadhi_mun",
-      "name_np": "बेलकोटगढी नगरपालिका",
-      "name_en": "Belkotgadhi Municipality",
-      "type": "नगरपालिका (नुवाकोट)",
-      "total_wards": 13,
-      "severity": "तटीय सतर्कता",
-      "severity_code": "warning",
-      "latitude": 27.812,
-      "longitude": 85.198,
-      "casualties": {
-        "deaths": 0,
-        "missing": 0,
-        "injured": 5
-      },
-      "displaced_families": 0,
-      "destroyed_houses": 0,
-      "partially_damaged_houses": 0,
-      "rescued_people": 0,
-      "helpline": "०१०-५४००८८",
-      "contact_person": "मेयर: जगतबहादुर गुरुङ / प्रमुख प्रशासकीय अधिकृत: नेत्र प्रसाद घिमिरे (९८५७०१५१८६)",
-      "wards": [
-        {
-          "ward_no": 5,
-          "name_np": "बेत्रावती-५",
-          "deaths": 0,
-          "missing": 0,
-          "injured": 5,
-          "displaced_families": 0,
-          "destroyed_houses": 0,
-          "status": "त्रिशूली नदी किनार जलसतह उच्च, टिचिङ अस्पतालमा उपचाररत",
-          "relief_pct": 90,
-          "urgent_needs": "सतर्कता"
-        }
-      ]
     }
   ],
   "road_conditions": [
     {
       "highway": "पासाङ ल्हामु राजमार्ग (Pasang Lhamu Highway)",
       "section_np": "धुञ्चे - स्याफ्रुबेँसी - टिमुरे सडक (Rasuwa)",
-      "status_np": "४० किमि सडक क्षतिग्रस्त / अबरुद्ध",
+      "status_np": "४० किमि सडक क्षतिग्रस्त / अवरुद्ध",
       "status_code": "danger",
-      "impact_np": "१९+ पक्की मोटरेबल पुल तथा ५ बेलीब्रिज बगेको, पहिरोका कारण सडक यातायात ठप्प"
+      "impact_np": "३५ पक्की मोटरेबल पुल तथा ४५ झोलुङ्गे पुल क्षतिग्रस्त/बगेको, पहिरोका कारण सडक यातायात ठप्प"
     },
     {
       "highway": "पृथ्वी राजमार्ग तथा मुग्लिन - नारायणगढ सडक",
       "section_np": "गल्छी - मलेखु - मुग्लिन - नारायणगढ सडकखण्ड",
-      "status_np": "पुर्ण बन्द (उच्च सतर्कता)",
+      "status_np": "पूर्ण बन्द (उच्च सतर्कता)",
       "status_code": "danger",
       "impact_np": "फुर्केखोला र केउरिनी-फोस्रेटार पुल बगेका, नागढुंगा नाकाबाट सवारी आवागमन रोकिएको"
     }
@@ -344,7 +524,7 @@
   "shelter_camps": [
     {
       "camp_name_np": "धुञ्चे माध्यमिक विद्यालय आश्रय केन्द्र",
-      "location_np": "गोसाईंकोण्ड गाउँपालिका ३, रसुवा",
+      "location_np": "गोसाईंकुण्ड गाउँपालिका ३, रसुवा",
       "capacity_families": 150,
       "current_families": 85,
       "managing_agency": "जिल्ला विपद् व्यवस्थापन समिति, रसुवा / नेपाली सेना",
@@ -365,26 +545,58 @@
       "current_families": 41,
       "managing_agency": "नेपाली सेना (श्री नं. १ सैन्य तालिम केन्द्र)",
       "status": "सञ्चालनमा"
+    },
+    {
+      "camp_name_np": "मलेखु माध्यमिक विद्यालय आश्रय केन्द्र",
+      "location_np": "गजुरी गाउँपालिका १, धादिङ",
+      "capacity_families": 80,
+      "current_families": 35,
+      "managing_agency": "जिल्ला विपद् व्यवस्थापन समिति, धादिङ",
+      "status": "सञ्चालनमा"
+    },
+    {
+      "camp_name_np": "मुग्लिन बजार आश्रय केन्द्र",
+      "location_np": "इच्छाकामना गाउँपालिका ३, चितवन",
+      "capacity_families": 120,
+      "current_families": 60,
+      "managing_agency": "इच्छाकामना विपद् व्यवस्थापन समिति / नेपाल प्रहरी",
+      "status": "सञ्चालनमा"
+    },
+    {
+      "camp_name_np": "देवघाट प्राथमिक उपचार तथा आश्रय शिविर",
+      "location_np": "देवघाट गाउँपालिका ५, तनहुँ",
+      "capacity_families": 90,
+      "current_families": 49,
+      "managing_agency": "स्थानीय विपद् समिति, तनहुँ",
+      "status": "सञ्चालनमा"
     }
   ],
   "information_sources": [
     {
-      "category_np": "नेपाल सरकार तथा सुरक्षा निकाय",
+      "category_np": "आधिकारिक विपद् बुलेटिन तथा NDRRMA",
       "sources": [
+        {
+          "title": "रसुवा–भोटेकोशी बाढी विपद् सूचना बुलेटिन (Rasuwa Flood Bulletin Live)",
+          "url": "https://nirajbhusal.github.io/rasuwa-flood-bulletin/"
+        },
+        {
+          "title": "राष्ट्रिय विपद् जोखिम न्यूनीकरण तथा व्यवस्थापन प्राधिकरण (NDRRMA SitRep-3)",
+          "url": "https://bipad.gov.np"
+        },
         {
           "title": "प्रधानमन्त्री तथा मन्त्रिपरिषद्को कार्यालय (OPMCM)",
           "url": "https://www.opmcm.gov.np"
         },
         {
-          "title": "गृह मन्त्रालय (NEOC)",
+          "title": "गृह मन्त्रालय - राष्ट्रिय आपत्कालीन कार्यसञ्चालन केन्द्र (NEOC)",
           "url": "https://neoc.gov.np"
         },
         {
-          "title": "नेपाल प्रहरी (Nepal Police)",
+          "title": "नेपाल प्रहरी (Nepal Police HQ)",
           "url": "https://nepalpolice.gov.np"
         },
         {
-          "title": "सशस्त्र प्रहरी बल (APF)",
+          "title": "सशस्त्र प्रहरी बल नेपाल (APF Nepal)",
           "url": "https://apf.gov.np"
         },
         {
@@ -396,25 +608,13 @@
           "url": "https://dhm.gov.np"
         },
         {
-          "title": "जलविज्ञान (Hydrology Portal)",
-          "url": "https://hydrology.gov.np"
-        },
-        {
-          "title": "बाढी पूर्वानुमान महाशाखा (Flood Forecasting)",
+          "title": "बाढी पूर्वानुमान महाशाखा (Flood Forecasting Portal)",
           "url": "https://floodforecasting.gov.np"
-        },
-        {
-          "title": "राष्ट्रिय विपद् जोखिम न्यूनीकरण तथा व्यवस्थापन प्राधिकरण (NDRRMA)",
-          "url": "https://bipad.gov.np"
-        },
-        {
-          "title": "नेपाल विद्युत् प्राधिकरण (NEA)",
-          "url": "https://www.nea.org.np"
         }
       ]
     },
     {
-      "category_np": "स्थानीय तह तथा जिल्ला प्रशासन",
+      "category_np": "स्थानीय तह तथा जिल्ला प्रशासन कार्यालयहरू",
       "sources": [
         {
           "title": "जिल्ला प्रशासन कार्यालय रसुवा",
@@ -425,29 +625,33 @@
           "url": "https://daonuwakot.moha.gov.np"
         },
         {
-          "title": "गोसाईंकोण्ड गाउँपालिका",
-          "url": "https://gosaikundarm.gov.np"
+          "title": "जिल्ला प्रशासन कार्यालय धादिङ",
+          "url": "https://daodhading.moha.gov.np"
         },
         {
-          "title": "विदुर नगरपालिका",
-          "url": "https://bidurmun.gov.np"
+          "title": "जिल्ला प्रशासन कार्यालय चितवन",
+          "url": "https://daochitwan.moha.gov.np"
+        },
+        {
+          "title": "जिल्ला प्रशासन कार्यालय गोरखा",
+          "url": "https://daogorkha.moha.gov.np"
+        },
+        {
+          "title": "जिल्ला प्रशासन कार्यालय तनहुँ",
+          "url": "https://daotanahun.moha.gov.np"
         }
       ]
     },
     {
-      "category_np": "राष्ट्रिय समाचार तथा सञ्चार माध्यम",
+      "category_np": "राष्ट्रिय सञ्चार माध्यम तथा समाचार संकलन",
       "sources": [
         {
-          "title": "रातोपाटी (Ratopati Flood Coverage)",
+          "title": "रातोपाटी (Ratopati Flood Live Coverage)",
           "url": "https://www.ratopati.com/story/587611/flood-death-toll-reaches-22"
         },
         {
           "title": "अनलाइनखबर (Onlinekhabar Flood Bulletin)",
           "url": "https://www.onlinekhabar.com/2026/08/2004273/more-than-a-hundred-rescued-by-helicopter"
-        },
-        {
-          "title": "खबरहब (Khabarhub English/Nepali)",
-          "url": "https://khabarhub.com/2026/26/1015939/"
         },
         {
           "title": "काठमाडौँ पोस्ट (The Kathmandu Post)",
@@ -462,7 +666,7 @@
           "url": "https://gorkhapatraonline.com"
         },
         {
-          "title": "कान्तिपुर पब्लिकेसन्स (Ekantipur)",
+          "title": "कान्तिपुर (Ekantipur)",
           "url": "https://ekantipur.com"
         },
         {
